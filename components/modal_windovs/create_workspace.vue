@@ -46,10 +46,11 @@ export default {
     async createWorkspace() {
       try {
         let response = await this.$axios.post('/api/workspaces', {
-          workspaceName: this.workspace.name,
+          name: this.workspace.name,
         })
         console.log(response)
         this.closeModal()
+        this.$router.push('/workspace/'+response.data.id)
       } catch (err) {
         console.log(err)
       }

@@ -71,6 +71,7 @@ export default {
   border: 2px solid black;
   background-color: green;
   border-right: 0px;
+  height: 20px;
 }
 
 #button2 {

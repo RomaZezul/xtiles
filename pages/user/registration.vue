@@ -42,7 +42,6 @@
 
 <script>
 export default {
-  auth: false,
   data() {
     return {
       register: {
@@ -52,6 +51,9 @@ export default {
       },
     }
   },
+
+  auth: false,
+
   methods: {
     async userRegister() {
       try {
@@ -67,6 +69,7 @@ export default {
             password: this.register.password,
           },
         })
+        this.$router.push('/workspace')
       } catch (err) {
         console.log(err)
       }

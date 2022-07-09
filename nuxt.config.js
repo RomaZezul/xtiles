@@ -49,11 +49,12 @@ export default {
 
   auth: {
     redirect: {
-      login: false,//'/user/login',
+      login: '/user/login',
       logout: '/',
       callback: false,
-      home: '/workspace/asdfg'
+      home: '/workspace'
     },
+  
     strategies: {
       local: {
         token: {
@@ -62,14 +63,18 @@ export default {
           // required: true,
           // type: 'Bearer'
         },
+        // cookie: {
+        //   // (optional) If set, we check this cookie existence for loggedIn check
+        //   name: 'XSRF-TOKEN',
+        // },
         user: {
-          property: 'user',
-          // autoFetch: true
+          property: false,
+           autoFetch: false
         },
         endpoints: {
           login: { url: '/api/login', method: 'post' },
           logout: false, //{ url: '/api/auth/logout', method: 'post' },
-          user: { url: '/api/account/username', method: 'get' }
+          user: false// { url: '/api/account/username', method: 'get' }
         }
       }
     }
@@ -90,3 +95,18 @@ export default {
     middleware: ['auth']
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -16,6 +16,7 @@
         <input
           type="password"
           id="Password"
+          autocomplete="current-password"
           placeholder="Пароль"
           required=""
           v-model="login.password"
@@ -36,6 +37,7 @@
 
 <script>
 export default {
+  //auth: false,
   data() {
     return {
       login: {
@@ -45,8 +47,10 @@ export default {
     }
   },
   async beforeCreate() {
-    console.log(this.$auth.user)
-    if (this.$auth.loggedIn) this.$router.push('/user/login')
+    console.log(this.$auth.loggedIn)
+    //if (this.$auth.loggedIn) this.$router.push('/user/login')
+            //this.$router.push('/workspace')
+
   },
   computed: {
     loggedIn() {
@@ -60,6 +64,12 @@ export default {
 
         console.log(response)
         console.log(this.$auth.user)
+        if (response) {
+         let us = await this.$axios.get('/api/account/username')
+        await this.$auth.setUser(us.data
+          
+        )
+      }
       } catch (err) {
         console.log(err)
       }

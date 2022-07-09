@@ -6,37 +6,40 @@
 
     <div class="body">
       <div class="header">
-          <Header />
+        <Header />
       </div>
       <Nuxt class="content" />
     </div>
   </div>
 </template>
 <script>
-import Sidebar from '~/components/side_bar/side_bar.vue'
-import Header from '~/components/headers/header_workspace/header_workspace.vue'
+import Sidebar from "~/components/side_bar/side_bar.vue";
+import Header from "~/components/headers/header_workspace/header_workspace.vue";
 export default {
   components: {
     Sidebar,
     Header,
   },
-
+  async beforeMount() {
+    let us = await this.$axios.get("/api/account/username");
+    await this.$auth.setUser(us.data);
+  },
   computed: {
     loggedIn() {
-      return this.$auth.loggedIn
+      return this.$auth.loggedIn;
     },
     user() {
-      return this.$auth.user
+      return this.$auth.user;
     },
   },
   methods: {
     logouts() {
-      console.log(this.$auth.user)
-      this.$auth.logout()
-      this.$router.push('/')
+      console.log(this.$auth.user);
+      this.$auth.logout();
+      this.$router.push("/");
     },
   },
-}
+};
 </script>
 
 <style>
@@ -61,8 +64,7 @@ export default {
 .header {
   display: block;
 }
-.content{
+.content {
   display: block;
 }
-
 </style>
