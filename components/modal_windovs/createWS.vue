@@ -1,26 +1,22 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask">
+    <div class="modal-mask" v-if="GETshowModal">
       <div class="modal-wrapper">
         <div class="modal-container">
-          
           <div class="modal-header">
             <h1>Create Workspace</h1>
           </div>
 
           <div class="modal-body">
-              <div>
-                <label>Name Workspace</label>
-                <input type="text" v-model="workspace.name" />
-              </div>
-              <div>
-                <button @click="closeModal">
-                  Close
-                </button>
-                <button @click="createWorkspace">Create</button>
-              </div>
+            <div>
+              <label>Name Workspace</label>
+              <input type="text" v-model="workspace.name" />
+            </div>
+            <div>
+              <button @click="closeModal">Close</button>
+              <button @click="createWorkspace">Create</button>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -30,33 +26,34 @@
 
 <script>
 export default {
-  name: 'ModalWindow',
-  
+  name: "ModalWindow",
+
   data() {
     return {
       workspace: {
-        name: '',
+        name: "",
       },
-    }
+    };
   },
   methods: {
     closeModal() {
-      this.$emit('close')
+      this.$store.commit("modal/SETshowModal", false);
     },
     async createWorkspace() {
       try {
-        let response = await this.$axios.post('/api/workspaces', {
-          name: this.workspace.name,
-        })
-        console.log(response)
-        this.closeModal()
-        this.$router.push('/workspace/'+response.data.id)
+        this.$store.dispatch("workspace/SET_WORKSPACE", this.workspace.name);
+        this.closeModal();
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     },
   },
-}
+  computed: {
+    GETshowModal() {
+      return this.$store.state.modal.showModal;
+    },
+  },
+};
 </script>
 
 

@@ -41,41 +41,35 @@ export default {
   data() {
     return {
       login: {
-        email: '',
-        password: '',
+        email: "",
+        password: "",
       },
-    }
+    };
   },
   async beforeCreate() {
-    console.log(this.$auth.loggedIn)
+    //await this.$auth.fetchUser()
+    //console.log(this.$auth.loggedIn);
     //if (this.$auth.loggedIn) this.$router.push('/user/login')
-            //this.$router.push('/workspace')
-
+    //this.$router.push('/')
   },
   computed: {
     loggedIn() {
-      return this.$auth.loggedIn
+      return this.$auth.loggedIn;
     },
   },
   methods: {
     async userLogin() {
       try {
-        let response = await this.$auth.loginWith('local', { data: this.login })
-
-        console.log(response)
-        console.log(this.$auth.user)
-        if (response) {
-         let us = await this.$axios.get('/api/account/username')
-        await this.$auth.setUser(us.data
-          
-        )
-      }
+        let response = await this.$auth.loginWith("local", {
+          data: this.login,
+        });
+        await this.$auth.setUser(response.data);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     },
   },
-}
+};
 </script>
 
 <style>
