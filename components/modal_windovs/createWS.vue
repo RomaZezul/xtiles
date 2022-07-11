@@ -41,7 +41,7 @@ export default {
     },
     async createWorkspace() {
       try {
-        this.$store.dispatch("workspace/SET_WORKSPACE", this.workspace.name);
+        this.$store.dispatch("workspace/CREATE_WORKSPACE", this.workspace.name);
         this.closeModal();
       } catch (err) {
         console.log(err);

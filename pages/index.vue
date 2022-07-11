@@ -8,18 +8,16 @@
       <NuxtLink tag="button" to="/user/registration" exact>
         Sign Up For Free
       </NuxtLink>
-
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: "IndexPage",
   auth: false,
-  methods: {
-  },
-}
+  methods: {},
+};
 </script>
 
 <style>

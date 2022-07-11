@@ -1,29 +1,24 @@
 <template>
   <div class="app">
     <div class="sidebar">
-      <Sidebar />
+      <SideBar/>
     </div>
 
     <div class="body">
       <div class="header">
-        <Header />
+        <HeadersHeaderWs/>
       </div>
       <Nuxt class="content" />
     </div>
   </div>
 </template>
 <script>
-import Sidebar from "~/components/side_bar/side_bar.vue";
-import Header from "~/components/headers/headerWS/headerWS.vue";
 export default {
-  components: {
-    Sidebar,
-    Header,
-  },
   async beforeMount() {
     if(this.loggedIn){
            let us = await this.$axios.get("/api/account/username");
      await this.$auth.setUser(us.data);
+      this.$store.dispatch("workspace/SET_WORKSPACES");
 
     }
 //await this.$auth.fetchUser()
@@ -39,7 +34,6 @@ export default {
     //   );
     //   sessionStorage.removeItem("store")
     // } else {
-      this.$store.dispatch("workspace/UPDATE_WORKSPACE");
     //}
 
     // Сохраняем информацию в vuex в sessionStorage при обновлении страницы

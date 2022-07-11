@@ -17,20 +17,18 @@ export const mutations = {
 }
 
 export const actions = {
-    async SET_WORKSPACE(context, name) {
+    async CREATE_WORKSPACE(context, name) {
         let respons = await this.$axios.post("/api/workspaces", { name: name, });
         if (respons.status == 200) {
-            context.commit('SET_WORKSPACE', respons.data);
+            context.commit("SET_WORKSPACE", respons.data);
             this.$router.push("/workspace/" + context.state.workspace.id);
-            let res = await this.$axios.get("/api/workspaces");
-
-            context.commit('SET_WORKSPACES', res.data)
-
+            context.dispatch("SET_WORKSPACES")
         }
     },
-    async UPDATE_WORKSPACE(context) {
 
-        let res = await this.$axios.get("/api/workspaces");
-        context.commit('SET_WORKSPACES', res.data)
-    }
+    async SET_WORKSPACES(context) {
+        let respons = await this.$axios.get("/api/workspaces");
+        context.commit("SET_WORKSPACES", respons.data)
+    },
+
 }

@@ -1,23 +1,19 @@
 <template>
   <div class="WSbar">
-    <SelectWS
+    <SideBarButtonsSelectWs
       v-for="item in workspaces"
       :key="item.id"
       :id="item.id"
       :name="item.name"
     >
-    </SelectWS>
+    </SideBarButtonsSelectWs>
   </div>
 </template>
 
 
 <script>
-import SelectWS from "~/components/side_bar/buttons/selectWS.vue";
 
 export default {
-  components: {
-    SelectWS: SelectWS,
-  },
   computed: {
     workspaces() {
       return this.$store.state.workspace.workspaces;
