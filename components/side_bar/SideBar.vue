@@ -12,7 +12,7 @@
       <SideBarButtonsCreateWs/>
     </div>
     <hr />
-    <ModalWindovsCreateWS/>
+    <ModalWindovsCreateWs/>
   </div>
 </template>
 

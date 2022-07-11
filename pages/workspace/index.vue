@@ -1,7 +1,7 @@
 <template>
   <div>
-    <BodyButtonsCreateWS/>
-    <ModalWindovsCreateWS/>
+    <BodyButtonsCreateWs/>
+    <ModalWindovsCreateWs/>
   </div>
 </template>
 
