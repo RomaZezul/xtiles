@@ -14,7 +14,7 @@
       <button v-if="loggedIn" @click="showModal = true">
         {{ user.userName }}
       </button>
-      <Profile v-if="showModal" @close="showModal = false"> </Profile>
+      <ModalWindovsProfile v-if="showModal" @close="showModal = false"> </ModalWindovsProfile>
     </div>
   </div>
   </div>
@@ -23,11 +23,7 @@
 
 
 <script>
-import Profile from '~/components/modal_windovs/profile.vue'
 export default {
-  components: {
-    Profile,
-  },
   data: () => ({
     showModal: false,
   }),
