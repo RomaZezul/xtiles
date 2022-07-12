@@ -3,7 +3,7 @@ export const state = () => ({
         name: '',
         id: '',
     },
-
+    showModal: false,
     workspaces: [],
 })
 
@@ -14,6 +14,10 @@ export const mutations = {
     SET_WORKSPACES(state, value) {
         state.workspaces = value
     },
+    SET_SHOW_MODAL(state, value){
+        state.showModal = value;
+      }
+  
 }
 
 export const actions = {

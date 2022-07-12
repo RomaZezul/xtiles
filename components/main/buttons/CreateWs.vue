@@ -12,7 +12,7 @@
 export default {
   methods: {
     SETshowModal(b) {
-      this.$store.commit("modal/SETshowModal", b);
+      this.$store.commit("workspace/SET_SHOW_MODAL", b);
     },
   },
 };

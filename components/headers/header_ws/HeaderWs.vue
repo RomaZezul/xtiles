@@ -1,63 +1,49 @@
 <template>
-<div class="header1">
+  <div class="header-root">
+    <div class="container">
+      <div id="button3">
+        <button></button>
+      </div>
 
-  <div class="container">
-    <div id="button3">
-      <button></button>
-    </div>
+      <div id="button2">
+        <button></button>
+      </div>
 
-    <div id="button2">
-      <button></button>
-    </div>
-
-    <div id="button1">
-      <button v-if="loggedIn" @click="showModal = true">
-        {{ user.userName }}
-      </button>
-      <ModalWindovsProfile v-if="showModal" @close="showModal = false"> </ModalWindovsProfile>
+      <div id="button1">
+       <HeadersButtonsOpenProfile/>
+      </div>
     </div>
   </div>
-  </div>
-
 </template>
 
 
 <script>
 export default {
-  data: () => ({
-    showModal: false,
-  }),
-
   computed: {
     loggedIn() {
-      return this.$auth.loggedIn
+      return this.$auth.loggedIn;
     },
     user() {
-      return this.$auth.user
+      return this.$auth.user;
     },
   },
 
-  methods: {
-    
-  },
-}
+  methods: {},
+};
 </script>
 
 
 <style>
-.header1{
+.header-root {
   display: flex;
   flex: 1 1;
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
   justify-content: flex-end;
-
 }
 .container {
   display: flex;
 
   flex-direction: row;
-
-
 
   padding: 20px;
 }
@@ -76,10 +62,9 @@ export default {
   background-color: yellow;
 }
 
-#button3{
+#button3 {
   width: 100%;
   border: 2px solid black;
   background-color: yellow;
-
 }
 </style>

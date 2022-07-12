@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     closeModal() {
-      this.$store.commit("modal/SETshowModal", false);
+      this.$store.commit("workspace/SET_SHOW_MODAL", false);
     },
     async createWorkspace() {
       try {
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     GETshowModal() {
-      return this.$store.state.modal.showModal;
+      return this.$store.state.workspace.showModal;
     },
   },
 };

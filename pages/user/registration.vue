@@ -5,9 +5,11 @@
         <h1>Для регистрации укажите имя пользователя и пароль</h1>
         <label for="inputUsername">Имя пользователя</label>
         <input
+          type="username"
           id="inputUsername"
           placeholder="Имя пользователя"
           required=""
+          autocomplete="username"
           v-model="register.userName"
         />
       </div>
@@ -17,6 +19,7 @@
           type="email"
           id="email"
           placeholder="email"
+          autocomplete="email"
           required=""
           v-model="register.email"
         />
@@ -28,12 +31,13 @@
           id="Password"
           placeholder="Пароль"
           required=""
+          autocomplete="current-password"
           v-model="register.password"
         />
         <button type="submit">Регистрация</button>
       </div>
       <div>
-        <hr>
+        <hr />
         <NuxtLink tag="button" to="/user/login" exact> Sign In </NuxtLink>
       </div>
     </form>
@@ -45,11 +49,11 @@ export default {
   data() {
     return {
       register: {
-        userName: '',
-        email: '',
-        password: '',
+        userName: "",
+        email: "",
+        password: "",
       },
-    }
+    };
   },
 
   auth: false,
@@ -57,24 +61,24 @@ export default {
   methods: {
     async userRegister() {
       try {
-        let response = await this.$axios.post('/api/registration', {
+        let response = await this.$axios.post("/api/registration", {
           userName: this.register.userName,
           email: this.register.email,
           password: this.register.password,
-        })
-        console.log(response)
-        await this.$auth.loginWith('local', {
+        });
+        console.log(response);
+        await this.$auth.loginWith("local", {
           data: {
             email: this.register.email,
             password: this.register.password,
           },
-        })
-        this.$router.push('/workspace')
+        });
+        this.$router.push("/workspace");
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     },
   },
-}
+};
 </script>
 <style></style>

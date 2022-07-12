@@ -1,26 +1,21 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask">
+    <div class="modal-mask" v-if="GETshowModal">
       <div class="modal-wrapper">
         <div class="modal-container">
-          
           <div class="modal-header">
-            <h1>{{user.userName}}</h1>
+            <h1>{{ user.userName }}</h1>
           </div>
 
           <div class="modal-body">
-              <div>
-                <label>Name User</label>
-                <input type="text" v-model="workspace.name" />
-              </div>
-              <div>
-                <button @click="closeModal">
-                  Close
-                </button>
-    <button id="con2" @click="logouts">logout</button>
-              </div>
+            <div>
+              <h1>Name User</h1>
+            </div>
+            <div>
+              <button @click="closeModal">Close</button>
+              <button @click="logouts">logout</button>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -30,45 +25,40 @@
 
 <script>
 export default {
-  name: 'ModalWindow',
-  
-  data() {
-    return {
-      workspace: {
-        name: '',
-      },
-    }
-  },
+  name: "ModalWindow",
+
   computed: {
     loggedIn() {
-      return this.$auth.loggedIn
+      return this.$auth.loggedIn;
     },
     user() {
-      return this.$auth.user
+      return this.$auth.user;
     },
   },
   methods: {
     closeModal() {
-      this.$emit('close')
+      this.$store.commit("profile/SET_SHOW_MODAL", false);
+      this.$router.push("/");
     },
-    async createWorkspace() {
-      try {
-        let response = await this.$axios.post('/api/workspaces', {
-          workspaceName: this.workspace.name,
-        })
-        console.log(response)
-        this.closeModal()
-      } catch (err) {
-        console.log(err)
-      }
-    },
+
     logouts() {
-      console.log(this.$auth.user)
-      this.$auth.logout()
-      this.$router.push('/')
+      this.$auth.logout();
+      this.closeModal();
     },
   },
-}
+  computed: {
+    GETshowModal() {
+      return this.$store.state.profile.showModal;
+    },
+
+    loggedIn() {
+      return this.$auth.loggedIn;
+    },
+    user() {
+      return this.$auth.user;
+    },
+  },
+};
 </script>
 
 

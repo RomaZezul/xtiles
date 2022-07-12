@@ -1,49 +1,27 @@
 <template>
   <div class="app">
-    <div class="sidebar">
-      <SideBar/>
-    </div>
-
-    <div class="body">
-      <div class="header">
-        <HeadersHeaderWs/>
-      </div>
-      <Nuxt class="content" />
-    </div>
+    <aside class="app_aside">
+      <SideBar />
+    </aside>
+    <header class="app_header">
+      <HeadersHeaderWs />
+    </header>
+    <main class="app_main">
+      <Nuxt />
+    </main>
+    <ModalWindovsCreateWs />
+    <ModalWindovsProfile />
   </div>
 </template>
 <script>
 export default {
   async beforeMount() {
-    if(this.loggedIn){
-           let us = await this.$axios.get("/api/account/username");
-     await this.$auth.setUser(us.data);
+    if (this.loggedIn) {
+      let us = await this.$axios.get("/api/account/username");
+      await this.$auth.setUser(us.data);
       this.$store.dispatch("workspace/SET_WORKSPACES");
-
     }
-//await this.$auth.fetchUser()
-
-    // Считываем информацию о статусе в sessionStorage при загрузке страницы
-    // if (sessionStorage.getItem("store")) {
-    //   this.$store.replaceState(
-    //     Object.assign(
-    //       {},
-    //       this.$store.state.workspace.workspaces,
-    //       JSON.parse(sessionStorage.getItem("store"))
-    //     )
-    //   );
-    //   sessionStorage.removeItem("store")
-    // } else {
-    //}
-
-    // Сохраняем информацию в vuex в sessionStorage при обновлении страницы
-    // Событие beforeunload запускается первым при обновлении страницы
-    //window.addEventListener("beforeunload", () => {
-      //sessionStorage.setItem("store", JSON.stringify(this.$store.state.workspace.workspaces));
-      //console.log(JSON.stringify(this.$store.state))
-    //});
   },
-
   computed: {
     loggedIn() {
       return this.$auth.loggedIn;
@@ -63,27 +41,30 @@ export default {
 
 <style>
 .app {
-  display: flex;
-  flex: 1 1;
-  min-height: 0;
+  display: block;
 }
-.sidebar {
-  position: relative;
-  display: flex;
-  flex-shrink: 0;
+.app_aside {
+  position: fixed;
   width: 240px;
-  cursor: pointer;
+  bottom: 0;
+  top: 0;
+  left: 0;
 }
-.body {
-  position: relative;
-  display: flex;
-  flex: 1 1;
-  flex-direction: column;
+.app_header {
+  position: fixed;
+  margin-left: 240px;
+  height: 100px;
+  left: 0;
+  top: 0;
+  right: 0;
 }
-.header {
-  display: block;
-}
-.content {
-  display: block;
+.app_main {
+  position: fixed;
+  margin-left: 240px;
+  margin-top: 100px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 </style>

@@ -1,18 +1,17 @@
 <template>
-  <div class="side_bar">
+  <div class="side_bar-root">
     <div>
-      <Logo/>
+      <Logo />
     </div>
     <hr />
     <hr />
     <h1>WORKSPACE</h1>
-    <SideBarWsBar/>
+    <SideBarWsBar />
 
     <div>
-      <SideBarButtonsCreateWs/>
+      <SideBarButtonsCreateWs />
     </div>
     <hr />
-    <ModalWindovsCreateWs/>
   </div>
 </template>
 
@@ -21,15 +20,12 @@ export default {
   data: () => ({}),
   methods: {},
   computed: {},
-
 };
 </script>
 
 <style>
-.side_bar {
+.side_bar-root {
   width: 100%;
-  flex-direction: column;
-  min-height: 0;
-  cursor: default;
+  height: 100%;
 }
 </style>

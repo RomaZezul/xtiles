@@ -8,6 +8,7 @@
           id="email"
           placeholder="email"
           required=""
+          autocomplete="email"
           v-model="login.email"
         />
       </div>
