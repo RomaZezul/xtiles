@@ -9,15 +9,26 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        as: 'style',
+        rel: 'stylesheet preload prefetch',
+        href: '/fonts/fonts.css',
+      },
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/css/main.css',
-  ],
+    '@/assets/scss/colors',
+    '@/assets/scss/size',
 
+  ],
+  styleResources: {
+    scss: [
+      './assets/scss/*.scss',
+    ]
+  },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
   ],
@@ -27,6 +38,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/style-resources',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -34,7 +46,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa', 
+    '@nuxtjs/pwa',
 
     '@nuxtjs/auth-next'
 
@@ -54,7 +66,7 @@ export default {
       callback: false,
       home: '/workspace'
     },
-  
+
     strategies: {
       local: {
         token: {
@@ -69,7 +81,7 @@ export default {
         // },
         user: {
           property: false,
-           //autoFetch: false
+          //autoFetch: false
         },
         endpoints: {
           login: { url: '/api/login', method: 'post' },

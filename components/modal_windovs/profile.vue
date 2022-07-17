@@ -38,12 +38,12 @@ export default {
   methods: {
     closeModal() {
       this.$store.commit("profile/SET_SHOW_MODAL", false);
-      this.$router.push("/");
     },
 
     logouts() {
       this.$auth.logout();
-      this.closeModal();
+            this.$router.push("/");
+ this.closeModal();
     },
   },
   computed: {

@@ -12,7 +12,6 @@
 
 
 <script>
-
 export default {
   computed: {
     workspaces() {
@@ -21,17 +20,13 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
 .WSbar {
   overflow-y: scroll;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  font-size: 12px;
-  line-height: 24px;
-  flex: 1 1;
-  flex-shrink: 0;
-  min-height: 0;
-  padding: 16px 0 8px 16px;
-  height: 20%;
+  height: 30%;
+  width: $size-1 + 20px;
 }
 </style>

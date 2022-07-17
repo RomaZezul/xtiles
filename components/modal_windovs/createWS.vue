@@ -10,7 +10,7 @@
           <div class="modal-body">
             <div>
               <label>Name Workspace</label>
-              <input type="text" v-model="workspace.name" />
+              <input type="text" v-model="newWs.name" />
             </div>
             <div>
               <button @click="closeModal">Close</button>
@@ -30,7 +30,7 @@ export default {
 
   data() {
     return {
-      workspace: {
+      newWs: {
         name: "",
       },
     };
@@ -41,7 +41,7 @@ export default {
     },
     async createWorkspace() {
       try {
-        this.$store.dispatch("workspace/CREATE_WORKSPACE", this.workspace.name);
+        this.$store.dispatch("workspace/CREATE_WORKSPACE", this.newWs.name);
         this.closeModal();
       } catch (err) {
         console.log(err);

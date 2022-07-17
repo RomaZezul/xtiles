@@ -13,12 +13,9 @@ export default {
     },
   },
   computed: {
-    loggedIn() {
-      return this.$auth.loggedIn;
-    },
-    user() {
+    user(){
       return this.$auth.user;
-    },
+    }
   },
 };
 </script>
