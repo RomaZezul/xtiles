@@ -80,7 +80,7 @@
   }
   div {
     margin-left: $size-5;
-    font-family: $font-family;
+    font-family: $font-fredoka;
     font-style: normal;
     font-weight: 400;
     font-size: $font_size-1;

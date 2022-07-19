@@ -37,7 +37,12 @@ export const actions = {
             name: respons.data.name,
             id: respons.data.id
         });
-        context.commit("pagge/SET_PAGES", respons.data.ListPagesResponse);
+        localStorage.setItem("CurrentWs", JSON.stringify({
+            name: respons.data.name,
+            id: respons.data.id
+        }));
+
+        context.commit("pagge/SET_PAGES", respons.data.listPagesResponse, {root:true});
 
     },
 

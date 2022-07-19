@@ -22,7 +22,7 @@ export default {
   css: [
     '@/assets/scss/colors',
     '@/assets/scss/size',
-
+    '@/assets/scss/font'
   ],
   styleResources: {
     scss: [

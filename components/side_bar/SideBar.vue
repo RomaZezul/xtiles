@@ -29,7 +29,7 @@ export default {
   width: 100%;
   height: 100%;
   p {
-    font-family: $font-family;
+    font-family: $font-fredoka;
     margin-left: $size-4;
     margin-top: 17px;
     font-size: $font_size-1;

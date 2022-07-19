@@ -1,7 +1,8 @@
 <template>
   <div>
     <div>
-      <div>
+    
+      <div >
         <hr />
         <NuxtLink tag="button" to="/user/login" exact> Sign In </NuxtLink>
       </div>
@@ -20,5 +21,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+
+
 </style>

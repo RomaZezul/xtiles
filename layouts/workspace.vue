@@ -15,14 +15,16 @@
 </template>
 <script>
 export default {
+  name: "LayoutWs",
   async beforeMount() {
+    if(this.$auth.loggedIn){
     this.$store.dispatch("workspace/SET_WORKSPACES");
     let us = await this.$axios.get("/api/account/username");
     await this.$auth.setUser(us.data);
     this.$store.commit(
       "workspace/SET_CURENT_WS",
       JSON.parse(localStorage.getItem("CurrentWs"))
-    );
+    );}
   },
 };
 </script>

@@ -12,7 +12,7 @@ export const mutations = {
         state.CurrentPage = value;
     },
     SET_PAGES(state, value) {
-        state.CurrentPage = value
+        state.pages = value
     },
     SET_SHOW_MODAL(state, value) {
         state.showModal = value;

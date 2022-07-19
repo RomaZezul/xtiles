@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="selectWS-root" @click="setWS({ name, id })">
+    <button class="selectWS-root" @click="route(id)">
       <div class="selectWS-container">
         <svg
           width="15"
@@ -35,20 +35,10 @@
 export default {
   name: "ButtonBar",
   props: ["id", "name"],
-  data() {
-    return {
-      workspace: {
-        name: "",
-        id: "",
-      },
-    };
-  },
 
   methods: {
-    setWS(value) {
-      this.$store.commit("workspace/SET_WORKSPACE", value);
-      localStorage.setItem("CurrentWs", JSON.stringify(value));
-      this.$router.push("/workspace/" + value.id);
+    route(id) {
+      this.$router.push("/workspace/" + id);
     },
   },
 };
@@ -111,7 +101,7 @@ export default {
   }
   div {
     margin-left: $size-5;
-    font-family: $font-family;
+    font-family: $font-fredoka;
     font-style: normal;
     font-weight: 400;
     font-size: $font_size-1;

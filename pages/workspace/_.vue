@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 id="h1">{{ CurrentWs.name }}</h1>
-    <h2>CONTENT</h2>
+    <MainPageMiniature :name = "'testPage'" :date = "222" :id="44" />
   </div>
 </template>
 
@@ -18,7 +18,6 @@ export default {
   computed: {
     CurrentWs() {
       return this.$store.state.workspace.CurrentWs;
-      //return JSON.parse(localStorage.getItem("CurrentWs"));
     },
   },
 };
