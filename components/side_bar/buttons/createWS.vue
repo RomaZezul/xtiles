@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: "CreateWS",
   methods: {
     SETshowModal(b) {
       this.$store.commit("workspace/SET_SHOW_MODAL", b);
