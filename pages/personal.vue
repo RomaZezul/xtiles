@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>PersonalPage</h1>
+        <h1>Personal - Page</h1>
     </div>
 </template>
 <script>
