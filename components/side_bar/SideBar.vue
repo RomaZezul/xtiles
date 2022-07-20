@@ -19,7 +19,6 @@
 <script>
 export default {
   name: "SideBar",
-  data: () => ({}),
 };
 </script>
 
