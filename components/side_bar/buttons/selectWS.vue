@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="selectWS-root" @click="route(id)">
+    <NuxtLink class="selectWS-link link" :to="`/workspace/${id}`">
       <div class="selectWS-container">
         <svg
           width="15"
@@ -26,27 +26,21 @@
           {{ name }}
         </div>
       </div>
-    </button>
+    </NuxtLink>
   </div>
 </template>
 
 
 <script>
 export default {
-  name: "ButtonBar",
+  name: "SelectWs",
   props: ["id", "name"],
-
-  methods: {
-    route(id) {
-      this.$router.push("/workspace/" + id);
-    },
-  },
 };
 </script>
 
 
 <style lang="scss">
-.selectWS-root {
+.selectWS-link {
   width: 150px;
   height: 24px;
   background: $color-1;
@@ -57,36 +51,7 @@ export default {
   padding: 0;
   margin: 0;
   margin-bottom: 10px;
-}
-.selectWS-root:hover {
-  background: $color-4;
-  div {
-    rect {
-      stroke: $color-2;
-    }
-    path {
-      stroke: $color-2;
-      fill: $color-2;
-    }
-    div {
-      color: $color-2;
-    }
-  }
-}
-.selectWS-root:active {
-  background: $color-6;
-  div {
-    rect {
-      stroke: $color-2;
-    }
-    path {
-      stroke: $color-2;
-      fill: $color-2;
-    }
-    div {
-      color: $color-2;
-    }
-  }
+  text-decoration: none;
 }
 .selectWS-container {
   margin-left: $size-4;

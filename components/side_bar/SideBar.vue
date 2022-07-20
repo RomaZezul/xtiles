@@ -18,9 +18,8 @@
 
 <script>
 export default {
+  name: "SideBar",
   data: () => ({}),
-  methods: {},
-  computed: {},
 };
 </script>
 

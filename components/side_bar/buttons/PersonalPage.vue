@@ -1,5 +1,5 @@
 <template>
-  <button class="personal_page-root">
+  <NuxtLink to="/personal" class="personal_page-link link">
     <div class="personal_page-container">
       <svg
         width="14"
@@ -17,15 +17,17 @@
       </svg>
       <div>Personal Pages</div>
     </div>
-  </button>
+  </NuxtLink>
 </template>
 
 
 <script>
+export default {};
 </script>
 
+
 <style lang="scss">
-.personal_page-root {
+.personal_page-link {
   width: 150px;
   height: 24px;
   background: $color-1;
@@ -35,37 +37,7 @@
   border-style: none;
   padding: 0;
   margin: 0;
-}
-.personal_page-root:hover {
-  background: $color-4;
-  div {
-    rect {
-      stroke: $color-2;
-    }
-    path {
-      stroke: $color-2;
-      fill: $color-2;
-    }
-    div {
-      color: $color-2;
-    }
-  }
-}
-.personal_page-root:active{
-      background: $color-6;
-  div {
-    rect {
-      stroke: $color-2;
-    }
-    path {
-      stroke: $color-2;
-      fill: $color-2;
-    }
-    div {
-      color: $color-2;
-    }
-  }
-
+  text-decoration: none;
 }
 .personal_page-container {
   margin-left: $size-4;

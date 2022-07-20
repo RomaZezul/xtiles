@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: "WsBar",
   computed: {
     workspaces() {
       return this.$store.state.workspace.workspaces;

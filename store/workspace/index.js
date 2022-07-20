@@ -42,7 +42,9 @@ export const actions = {
             id: respons.data.id
         }));
 
-        context.commit("pagge/SET_PAGES", respons.data.listPagesResponse, {root:true});
+        context.commit("pagge/SET_PAGES", respons.data.pages, {
+            root: true
+        });
 
     },
 

@@ -1,0 +1,18 @@
+a.nuxt-link-exact-active, link:hover{
+    background: $color-4;
+    div {
+      rect {
+        stroke: $color-2;
+      }
+      path {
+        stroke: $color-2;
+        fill: $color-2;
+      }
+      div {
+        color: $color-2;
+      }
+    }
+  }
+  .link:active {
+    background: $color-6;
+  }
