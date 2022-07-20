@@ -17,7 +17,7 @@ export default {
 };
 </script>
 <style>
-.createWS {
+.createWs {
   margin: 30px;
 }
 </style>
