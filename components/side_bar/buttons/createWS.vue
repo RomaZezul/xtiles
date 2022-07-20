@@ -1,5 +1,5 @@
 <template>
-  <div class="createWS">
+  <div class="createWs">
     Workspace
     <button id="show-modal" @click="SETshowModal(true)">+</button>
   </div>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "CreateWS",
+  name:"CreateWs",
   methods: {
     SETshowModal(b) {
       this.$store.commit("workspace/SET_SHOW_MODAL", b);
@@ -17,7 +17,7 @@ export default {
 };
 </script>
 <style>
-.createWS {
+.createWs {
   margin: 30px;
 }
 </style>
