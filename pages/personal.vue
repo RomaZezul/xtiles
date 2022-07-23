@@ -3,6 +3,7 @@
         <h1>PersonalPage</h1>
     </div>
 </template>
+
 <script>
 export default {
   layout: "workspace",

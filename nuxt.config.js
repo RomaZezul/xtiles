@@ -23,7 +23,7 @@ export default {
     '@/assets/scss/colors',
     '@/assets/scss/size',
     '@/assets/scss/font',
-    '@/assets/scss/link',
+    '@/assets/scss/hover_active',
 
   ],
   styleResources: {
@@ -63,10 +63,10 @@ export default {
 
   auth: {
     redirect: {
-      login: '/user/login',
+      login: '/user',
       logout: '/',
       callback: false,
-      home: '/workspace'
+      home: '/personal'
     },
 
     strategies: {
