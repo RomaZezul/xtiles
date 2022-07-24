@@ -1,29 +1,28 @@
 <template>
   <div class="login_form-root">
     <form @submit.prevent="userLogin">
-      <div>
-        <input class="style_input"
-          type="email"
-          id="email"
-          placeholder="email"
-          required=""
-          autocomplete="email"
-          v-model="login.email"
-        />
+      <input
+        class="style_input"
+        type="email"
+        id="email"
+        placeholder="email"
+        required=""
+        autocomplete="email"
+        v-model="login.email"
+      />
+      <div style="text-align: right; margin-top: 30px; margin-bottom: -8px">
+        <span class="link1">Forgot Password?</span>
       </div>
-      <div>
-        <input class="style_input"
-          type="password"
-          id="Password"
-          autocomplete="current-password"
-          placeholder="password"
-          required=""
-          v-model="login.password"
-        />
-      </div>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
+      <input
+        class="style_input"
+        type="password"
+        id="Password"
+        autocomplete="current-password"
+        placeholder="password"
+        required=""
+        v-model="login.password"
+      />
+      <button class="form-button" type="submit">Login</button>
     </form>
   </div>
 </template>
@@ -53,21 +52,38 @@ export default {
   },
 };
 </script>
-
 <style lang="scss">
 .login_form-root {
+  width: $size-11;
   input {
     width: $size-11;
     height: $size-12;
-
     background: $color-1;
     border-radius: $radius-6;
-  outline-color: $color-5;
-    //border-style: none;
-        border: 1px solid $color-8;
-
+    outline-color: $color-5;
+    border: 1px solid $color-8;
     margin: 0;
-    margin-top: 17px;
+    padding: 0;
+    margin-top: 16px;
+    font-size: $font_size-1;
+    font-family: $font-fredoka;
+  }
+  span {
+    margin: 0;
+    font-size: $font_size-3;
+  }
+  button {
+    width: $size-11;
+    height: $size-12;
+    font-size: $font_size-1;
+    font-family: $font-fredoka;
+
+    background: $color-4;
+    color: $color-2;
+    border-radius: $radius-6;
+    border: 1px solid $color-8;
+    margin: 0;
+    margin-top: 28px;
   }
 }
 </style>

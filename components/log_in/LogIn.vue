@@ -6,7 +6,8 @@
     <div v-if="isShow">
       <h1>Welcome to xtiles</h1>
       <div class="text">
-        Don`t have an account?  <span class="link1" @click="showD">Sign up for free</span>
+        Don`t have an account?
+        <span class="link1" @click="showD">Sign up for free</span>
       </div>
       <div class="form-login">
         <LogInLoginForm />
@@ -15,7 +16,8 @@
     <div v-if="!isShow">
       <h1>Create Account</h1>
       <div class="text">
-        Already have an account?  <span class="link1" @click="showD">Sign In</span>
+        Already have an account?
+        <span class="link1" @click="showD">Sign In</span>
       </div>
       <div class="forn-reg">
         <LogInRegForm />
@@ -26,20 +28,20 @@
 
 <script>
 export default {
-  //auth: false,
+  //props:["showF"],
   data() {
     return {
-      showF: true,
+      //showF: true,
     };
   },
   methods: {
     showD() {
-      this.showF = !this.showF;
+      this.$store.commit("SET_SHOW_F", !this.$store.state.showF);
     },
   },
   computed: {
     isShow() {
-      return this.showF;
+      return this.$store.state.showF;
     },
   },
 };
@@ -78,12 +80,5 @@ export default {
   color: $color-9;
   margin: 0;
   margin-top: 14px;
-
-  span {
-    text-decoration: underline;
-    color: $color-4;
-    background: $color-2;
-  }
-
 }
 </style>

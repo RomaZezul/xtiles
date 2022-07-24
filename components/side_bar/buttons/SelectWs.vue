@@ -67,15 +67,14 @@ export default {
   div {
     margin-left: $size-5;
     font-family: $font-fredoka;
-    font-style: normal;
     font-weight: 400;
     font-size: $font_size-1;
-    line-height: 15px;
     color: $color-5;
     width: 90px;
     text-align: left;
     overflow-x: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap
   }
 }
 </style>

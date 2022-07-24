@@ -4,11 +4,11 @@
     
       <div >
         <hr />
-        <NuxtLink tag="button" to="/user/login" exact> Sign In </NuxtLink>
+        <span class="link1" @click = 'reg(true)' > Sign In </span>
       </div>
-      <NuxtLink tag="button" to="/user/registration" exact>
+      <span class="link1" @click = 'reg(false)'>
         Sign Up For Free
-      </NuxtLink>
+      </span>
     </div>
   </div>
 </template>
@@ -17,7 +17,12 @@
 export default {
   name: "IndexPage",
   auth: false,
-  methods: {},
+  methods: {
+    reg(b){
+this.$store.commit("SET_SHOW_F", b)
+this.$router.push("/user")
+    }
+  },
 };
 </script>
 

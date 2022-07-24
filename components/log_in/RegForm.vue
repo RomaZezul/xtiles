@@ -1,39 +1,34 @@
 <template>
-  <div>
+  <div class="reg_form-root">
     <form @submit.prevent="userRegister">
-      <div>
-        <input class="style_input"
-          type="username"
-          id="inputUsername"
-          placeholder="username"
-          required=""
-          autocomplete="username"
-          v-model="register.userName"
-        />
-      </div>
-      <div>
-        <input class="style_input"
-          type="email"
-          id="email"
-          placeholder="email"
-          autocomplete="email"
-          required=""
-          v-model="register.email"
-        />
-      </div>
-      <div>
-        <input class="style_input"
-          type="password"
-          id="Password"
-          placeholder="password"
-          required=""
-          autocomplete="current-password"
-          v-model="register.password"
-        />
-        <div>
-          <button type="submit">Регистрация</button>
-        </div>
-      </div>
+      <input
+        class="style_input"
+        type="username"
+        id="inputUsername"
+        placeholder="username"
+        required=""
+        autocomplete="username"
+        v-model="register.userName"
+      />
+      <input
+        class="style_input"
+        type="email"
+        id="email"
+        placeholder="email"
+        autocomplete="email"
+        required=""
+        v-model="register.email"
+      />
+      <input
+        class="style_input"
+        type="password"
+        id="Password"
+        placeholder="password"
+        required=""
+        autocomplete="current-password"
+        v-model="register.password"
+      />
+      <button class="form-button" type="submit">Регистрация</button>
     </form>
   </div>
 </template>
@@ -67,7 +62,6 @@ export default {
             password: this.register.password,
           },
         });
-        this.$router.push("/workspace");
       } catch (err) {
         console.log(err);
       }
@@ -75,4 +69,37 @@ export default {
   },
 };
 </script>
-<style></style>
+<style lang="scss">
+.reg_form-root {
+  width: $size-11;
+  input {
+    width: $size-11;
+    height: $size-12;
+    background: $color-1;
+    border-radius: $radius-6;
+    outline-color: $color-5;
+    border: 1px solid $color-8;
+    margin: 0;
+    margin-top: 16px;
+    font-size: $font_size-1;
+    font-family: $font-fredoka;
+  }
+  span {
+    margin: 0;
+    font-size: $font_size-3;
+  }
+  button {
+    width: $size-11;
+    height: $size-12;
+    font-size: $font_size-1;
+    font-family: $font-fredoka;
+
+    background: $color-4;
+    color: $color-2;
+    border-radius: $radius-6;
+    border: 1px solid $color-8;
+    margin: 0;
+    margin-top: 28px;
+  }
+}
+</style>
