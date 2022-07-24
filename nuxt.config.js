@@ -77,10 +77,6 @@ export default {
           // required: true,
           // type: 'Bearer'
         },
-        // cookie: {
-        //   // (optional) If set, we check this cookie existence for loggedIn check
-        //   name: 'XSRF-TOKEN',
-        // },
         user: {
           property: false,
           //autoFetch: false
