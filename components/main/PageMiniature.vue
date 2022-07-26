@@ -26,7 +26,7 @@ export default {
   align-content: flex-start;
   flex-direction: column;
   border-style: none;
-  background: $color-2;
+  background: $white;
   margin: $size-10;
 }
 .page_miniature-1 {
@@ -41,7 +41,7 @@ export default {
 .page_miniature-2 {
   width: $size-8;
   height: $size-9;
-  background: $color-7;
+  background: $grey5;
   border-radius: $radius-4;
 }
 </style>

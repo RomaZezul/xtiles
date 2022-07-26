@@ -1,11 +1,10 @@
 <template >
   <div>
-    <h1>PAGE</h1>
-  </div>
+<MainMainBarPageBar/>  </div>
 </template>
 <script>
 export default {
-  layout: "page",
+  layout: "workspace",
 };
 </script>
 <style lang="scss">

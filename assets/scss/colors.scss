@@ -1,19 +1,23 @@
-$color-1: #D2DCF5;
-$color-2: #ffffff;
-$color-3: #384256;
-$color-4: #E83C70;
-$color-5: #485772;
-$color-6: #F18AA9;
-$color-7: #EEF1F8;
-$color-8: #FDFDFD;
-$color-9: #1a1a1c;
-$color-10: #A3ABB8;
+
+$white: #ffffff;
+
+$pink1: #e83c70;
+$pink2: #F18AA9;
+
+$grey1: #485772;
+$grey2: #A3ABB8;
+$grey3: #384256;
+$grey4: #D2DCF5;
+$grey5: #EEF1F8;
+
+$black1: #1a1a1c;
+
+$yellow1: #fec703;
+
+$blue1: #3eb5e9;
 
 
-
-$gradient-1:linear-gradient(
-    121.33deg,
-    #fec703 -9.46%,
-    $color-4 43.94%,
-    #3eb5e9 99.61%
-  );
+$gradient-1: linear-gradient(135deg,
+    $yellow1 0%,
+    $pink1 50%,
+    $blue1 100%);

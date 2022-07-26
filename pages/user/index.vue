@@ -14,7 +14,7 @@ export default {
 </script>
 <style lang="scss">
 .login-root {
-  background: $color-1;
+  background: $grey4;
   display: flex;
   justify-content: space-around;
   position: fixed;

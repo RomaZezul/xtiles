@@ -54,7 +54,7 @@ export default {
   align-items: center;
   height: 100%;
   width: 100%;
-  background: $color-8;
+  background: $white;
   border-radius: $radius-5;
   font-family: $font-fredoka;
   text-align: center;
@@ -64,7 +64,7 @@ export default {
     margin-top: 28px;
     font-size: $font_size-2;
     line-height: 29px;
-    color: $color-9;
+    color: $black1;
     font-weight: 400;
   }
 }
@@ -77,7 +77,7 @@ export default {
   font-weight: 400;
   font-size: $font_size-3;
   line-height: 12px;
-  color: $color-9;
+  color: $black1;
   margin: 0;
   margin-top: 14px;
 }

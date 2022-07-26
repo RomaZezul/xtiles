@@ -1,13 +1,13 @@
 <template>
   <transition name="modal">
-    <div class="modal-mask" v-if="GETshowModal">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
+    <div class="createw_ws_modal-mask" v-if="GETshowModal">
+      <div class="createw_ws_modal-wrapper">
+        <div class="createw_ws_modal-container">
+          <div class="createw_ws_modal-header">
             <h1>Create Workspace</h1>
           </div>
 
-          <div class="modal-body">
+          <div class="createw_ws_modal-body">
             <div>
               <label>Name Workspace</label>
               <input type="text" v-model="newWs.name" />
@@ -57,8 +57,8 @@ export default {
 </script>
 
 
-<style >
-.modal-mask {
+<style scoped>
+.createw_ws_modal-mask {
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -70,12 +70,12 @@ export default {
   transition: opacity 0.3s ease;
 }
 
-.modal-wrapper {
+.createw_ws_modal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 
-.modal-container {
+.createw_ws_modal-container {
   width: 300px;
   margin: 0px auto;
   padding: 20px 30px;
@@ -86,27 +86,19 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.modal-header h3 {
+.createw_ws_modal-header h1 {
   margin-top: 0;
-  color: #42b983;
+  color: #426eb9;
 }
 
-.modal-body {
+.createw_ws_modal-body {
   margin: 20px 0;
 }
 
-.modal-default-button {
+.createw_ws_modal-default-button {
   float: right;
 }
 
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
 
 .modal-enter {
   opacity: 0;
@@ -116,8 +108,8 @@ export default {
   opacity: 0;
 }
 
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
+.modal-enter .createw_ws_modal-container,
+.modal-leave-active .createw_ws_modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

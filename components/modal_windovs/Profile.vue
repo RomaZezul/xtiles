@@ -1,13 +1,12 @@
 <template>
-  <transition name="modal">
-    <div class="modal-mask" v-if="GETshowModal">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
+    <div Close class="modal_profile-mask" v-if="GETshowModal">
+      <div class="modal_profile-wrapper">
+        <div class="modal_profile-container">
+          <div class="modal_profile-header">
             <h1>{{ user.userName }}</h1>
           </div>
 
-          <div class="modal-body">
+          <div class="modal_profile-body">
             <div>
               <h1>Name User</h1>
             </div>
@@ -19,7 +18,6 @@
         </div>
       </div>
     </div>
-  </transition>
 </template>
 
 
@@ -62,68 +60,38 @@ export default {
 </script>
 
 
-<style >
-.modal-mask {
+<style lang="scss">
+.modal_profile-mask {
   position: fixed;
   z-index: 9998;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity 0.3s ease;
 }
 
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
+.modal_profile-wrapper {
+  position: fixed;
+    top: 50px;
+    right: 50px;
 }
 
-.modal-container {
+.modal_profile-container {
   width: 300px;
-  margin: 0px auto;
+  height: 400px;
   padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
+  background-color: $white;
+  border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
 }
 
-.modal-header h3 {
+.modal_profile-header h1 {
   margin-top: 0;
   color: #42b983;
 }
 
-.modal-body {
+.modal_profile-body {
   margin: 20px 0;
 }
 
-.modal-default-button {
-  float: right;
-}
-
-/*
- * The following styles are auto-applied to elements with
- * transition="modal" when their visibility is toggled
- * by Vue.js.
- *
- * You can easily play with the modal transition by editing
- * these styles.
- */
-
-.modal-enter {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
 </style>

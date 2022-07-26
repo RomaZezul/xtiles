@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 id="h1">{{ CurrentWs.name }}</h1>
+    <MainMainBarWsBar/>
     <MainPageMiniature :name = "'testPage'" :date = "222" :id="44" />
   </div>
 </template>

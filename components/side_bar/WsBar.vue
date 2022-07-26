@@ -23,11 +23,10 @@ export default {
 </script>
 <style lang="scss">
 .WSbar {
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  height: 30%;
-  width: $size-1 + 20px;
+  width: $size-1 + 10px;
 }
 </style>

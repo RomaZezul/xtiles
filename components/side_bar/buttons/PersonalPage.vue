@@ -28,9 +28,9 @@ export default {};
 
 <style lang="scss">
 .personal_page-link {
-  width: 150px;
-  height: 24px;
-  background: $color-1;
+  width: calc($size-1 - 20px);
+  height: 31px;
+  background: $grey4;
   border-radius: $radius-2;
   display: flex;
   align-items: center;
@@ -44,19 +44,18 @@ export default {};
   display: flex;
   align-items: center;
   rect {
-    stroke: $color-5;
+    stroke: $grey1;
   }
   path {
-    stroke: $color-5;
-    fill: $color-5;
+    stroke: $grey1;
+    fill: $grey1;
   }
   div {
     margin-left: $size-5;
     font-family: $font-fredoka;
     font-weight: 400;
     font-size: $font_size-1;
-    line-height: 15px;
-    color: $color-5;
+    color: $grey1;
     text-align: left;
     overflow-x: hidden;
     text-overflow: ellipsis;

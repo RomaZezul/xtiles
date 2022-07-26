@@ -58,10 +58,10 @@ export default {
   input {
     width: $size-11;
     height: $size-12;
-    background: $color-1;
+    background: $grey4;
     border-radius: $radius-6;
-    outline-color: $color-5;
-    border: 1px solid $color-8;
+    outline-color: $grey1;
+    border: 1px solid $white;
     margin: 0;
     padding: 0;
     margin-top: 16px;
@@ -78,10 +78,10 @@ export default {
     font-size: $font_size-1;
     font-family: $font-fredoka;
 
-    background: $color-4;
-    color: $color-2;
+    background: $pink1;
+    color: $white;
     border-radius: $radius-6;
-    border: 1px solid $color-8;
+    border: 1px solid $white;
     margin: 0;
     margin-top: 28px;
   }

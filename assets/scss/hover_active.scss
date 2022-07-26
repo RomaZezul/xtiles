@@ -1,62 +1,62 @@
 a.nuxt-link-exact-active{
-  background: $color-4;
+  background: $pink1;
   div {
     rect {
-      stroke: $color-2;
+      stroke: $white;
     }
     path {
-      stroke: $color-2;
-      fill: $color-2;
+      stroke: $white;
+      fill: $white;
     }
     div {
-      color: $color-2;
+      color: $white;
     }
   }
 }
 .link:hover{
-  background: $color-4;
+  background: $pink1;
   div {
     rect {
-      stroke: $color-2;
+      stroke: $white;
     }
     path {
-      stroke: $color-2;
-      fill: $color-2;
+      stroke: $white;
+      fill: $white;
     }
     div {
-      color: $color-2;
+      color: $white;
     }
   }
 }
 .link:active {
-  background: $color-6;
+  background: $pink2;
 }
 .link1{
   text-decoration: underline;
-  color: $color-4;
-  background: $color-2;
+  color: $pink1;
+  background: $white;
 
 }
 .link1:active{
-  color: $color-10;
+  color: $grey2;
 }
 .link1:hover{
-  color: $color-5;
+  color: $grey1;
   cursor: pointer;
 }
 
 .style_input:active{
 
-  border: 1px solid $color-5;
+  border: 1px solid $grey1;
 }
 .style_input:hover{
-    border: 1px solid $color-5;
+    border: 1px solid $grey1;
 
 }
 .form-button:hover{
-  background: $color-6;
+  background: $pink2;
 }
 .form-button:active{
-  background: $color-6;
+  background: $pink2;
 
 }
