@@ -1,6 +1,10 @@
 <template>
   <div>
-    <NuxtLink class="selectWS-link link" :to="`/workspace/${id}`">
+    <button
+      v-bind:class="{ active: isActive }"
+      class="selectWS-link link"
+      @click="SelectWs(id)"
+    >
       <div class="selectWS-container">
         <svg
           width="15"
@@ -26,7 +30,7 @@
           {{ name }}
         </div>
       </div>
-    </NuxtLink>
+    </button>
   </div>
 </template>
 
@@ -35,6 +39,23 @@
 export default {
   name: "SelectWs",
   props: ["id", "name"],
+  methods: {
+    SelectWs(id) {
+      this.$store.commit("workspace/SET_CURENT_WS", {
+        name: this.name,
+        id: this.id,
+      });
+      this.$store.dispatch("workspace/GET_WORKSPACE");
+
+      this.$router.push("/workspace");
+    },
+  },
+  computed: {
+    isActive() {
+      if (this.id == this.$store.state.workspace.CurrentWs.id) return true;
+      else return false;
+    },
+  },
 };
 </script>
 
@@ -74,7 +95,22 @@ export default {
     text-align: left;
     overflow-x: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap
+    white-space: nowrap;
+  }
+}
+.active {
+  background: $pink1;
+  div {
+    rect {
+      stroke: $white;
+    }
+    path {
+      stroke: $white;
+      fill: $white;
+    }
+    div {
+      color: $white;
+    }
   }
 }
 </style>

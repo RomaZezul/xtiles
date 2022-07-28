@@ -1,7 +1,7 @@
-
 $white: #ffffff;
 
 $pink1: #e83c70;
+$pink_op: #e83c70e6;
 $pink2: #F18AA9;
 
 $grey1: #485772;
@@ -13,11 +13,17 @@ $grey5: #EEF1F8;
 $black1: #1a1a1c;
 
 $yellow1: #fec703;
+$yellow_op: #fec803e6;
 
 $blue1: #3eb5e9;
+$blue_op: #3eb5e9e6;
 
 
 $gradient-1: linear-gradient(135deg,
-    $yellow1 0%,
-    $pink1 50%,
-    $blue1 100%);
+        $yellow1 0%,
+        $pink1 50%,
+        $blue1 100%);
+$gradient-1_op: linear-gradient(135deg,
+        $yellow_op 0%,
+        $pink_op 50%,
+        $blue_op 100%);

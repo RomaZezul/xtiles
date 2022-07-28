@@ -10,6 +10,7 @@ export const state = () => ({
 export const mutations = {
     SET_CURENT_WS(state, value) {
         state.CurrentWs = value;
+        localStorage.setItem("CurrentWs", value.id)
     },
     SET_WORKSPACES(state, value) {
         state.workspaces = value
@@ -32,15 +33,15 @@ export const actions = {
     },
 
     async GET_WORKSPACE(context, id) {
-        let respons = await this.$axios.get("/api/workspaces/" + id);
+        let respons = await this.$axios.get("/api/workspaces/" + localStorage.getItem("CurrentWs"));
         context.commit("SET_CURENT_WS", {
             name: respons.data.name,
             id: respons.data.id
         });
-        localStorage.setItem("CurrentWs", JSON.stringify({
-            name: respons.data.name,
-            id: respons.data.id
-        }));
+        // localStorage.setItem("CurrentWs", JSON.stringify({
+        //     name: respons.data.name,
+        //     id: respons.data.id
+        // }));
 
         context.commit("pagge/SET_PAGES", respons.data.pages, {
             root: true

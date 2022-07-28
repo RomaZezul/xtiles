@@ -1,10 +1,10 @@
-@font-face {  
+/* @font-face {  
     font-family: 'Fredoka One';  
     font-weight: normal;  
     font-style: normal;  
     font-display: swap;  
     src:  
-        /* local("Fredoka One"),   */
         url("/fonts/fredoka_one.woff2") format("woff2"),  
         url("/fonts/fredoka_one.woff") format("woff");  
-  }  
+  }  */
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap'); 

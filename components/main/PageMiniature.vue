@@ -1,5 +1,5 @@
 <template>
-  <button class="page_miniature-root" @click="route(id)">
+  <button class="page_miniature-root" @click="route()">
     <div class="page_miniature-1">
       <div class="page_miniature-2"></div>
     </div>
@@ -13,8 +13,13 @@ export default {
   name: "PageMiniature",
   props: ["name", "date", "id"],
   methods: {
-    route(id) {
-      this.$router.push("/" + id);
+    route() {
+      this.$store.commit("pagge/SET_CURENT_PAGE", {
+        name: this.name,
+        id: this.id,
+      });
+
+      this.$router.push("/page");
     },
   },
 };

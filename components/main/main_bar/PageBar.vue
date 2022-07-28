@@ -1,6 +1,6 @@
 <template>
   <div class="page_bar-root">
-    <div class="page_bar-breadcrumbs">PAGE</div>
+    <div class="page_bar-breadcrumbs">{{ CurrentPage.name }}</div>
     <div class="page_bar-buttons">
       <button class="page_bar-button"></button>
 
@@ -12,12 +12,13 @@
 </template>
 <script>
 export default {
-      computed: {
-    CurrentWs() {
-      return this.$store.state.workspace.CurrentWs;
+  computed: {
+    CurrentPage() {
+      if (this.$store.state.pagge.CurrentPage) {
+        return this.$store.state.pagge.CurrentPage;
+      } else return "";
     },
   },
-
 };
 </script>
 <style lang="scss">
@@ -27,11 +28,10 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.page_bar-buttons{
+.page_bar-buttons {
   display: flex;
 }
-.page_bar-button{
+.page_bar-button {
   margin-left: 13px;
 }
-
 </style>

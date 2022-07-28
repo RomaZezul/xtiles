@@ -5,19 +5,17 @@
       <button class="ws_bar-button"></button>
 
       <button class="ws_bar-button"></button>
-
-      <button class="ws_bar-button"></button>
+      <MainMainBarBattonsCreateNewPage class="ws_bar-button" />
     </div>
   </div>
 </template>
 <script>
 export default {
-      computed: {
+  computed: {
     CurrentWs() {
-      return this.$store.state.workspace.CurrentWs;
+        return this.$store.state.workspace.CurrentWs;
     },
   },
-
 };
 </script>
 <style lang="scss">
@@ -27,11 +25,10 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.ws_bar-buttons{
+.ws_bar-buttons {
   display: flex;
 }
-.ws_bar-button{
+.ws_bar-button {
   margin-left: 13px;
 }
-
 </style>
