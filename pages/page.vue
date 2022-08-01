@@ -1,5 +1,5 @@
 <template >
-  <div>
+  <div class="page-root">
     <MainMainBarPageBar />
     <div>
       {{ CurrentPage.name }}
@@ -14,6 +14,8 @@ export default {
     if (localStorage.getItem("CurrentPage") == null) {
       this.$router.push("/personal");
     }
+        this.$store.commit("SWITCH_PAGE", true)
+
   },
   mounted() {
     if (localStorage.getItem("CurrentPage") == 0) {
@@ -32,4 +34,7 @@ export default {
 };
 </script>
 <style lang="scss">
+.page-root{
+  margin: 0 40px;
+}
 </style>

@@ -25,16 +25,10 @@ export default {
   align-items: center;
 }
 .login-form {
-  max-height: 614px;
-  max-width: 482px;
-  height: 100%;
-  width: 100%;
-  margin: 80px;
+  margin: auto;
 }
 .login-info {
-  max-height: 831px;
-  max-width: 1000px;
   height: 100%;
-  width: 100%;
+  width: 50%;
 }
 </style>

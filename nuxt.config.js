@@ -1,4 +1,8 @@
 export default {
+   server: {
+      host: '192.168.0.101', // default: localhost
+      port: 3131
+    },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'xtiles',
@@ -77,10 +81,6 @@ export default {
           // required: true,
           // type: 'Bearer'
         },
-        // cookie: {
-        //   // (optional) If set, we check this cookie existence for loggedIn check
-        //   name: 'XSRF-TOKEN',
-        // },
         user: {
           property: false,
           //autoFetch: false

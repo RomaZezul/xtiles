@@ -27,26 +27,36 @@ export default {
 
 <style lang="scss">
 .page_miniature-root {
-  display: flex;
-  align-content: flex-start;
-  flex-direction: column;
   border-style: none;
-  background: $white;
-  margin: $size-10;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
 .page_miniature-1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: $size-6;
   height: $size-7;
   background: $gradient-1;
   border-radius: $radius-3;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
 }
 .page_miniature-2 {
-  width: $size-8;
-  height: $size-9;
   background: $grey5;
   border-radius: $radius-4;
+  height: inherit;
+}
+.page_miniature-root:hover {
+  .page_miniature-1 {
+    background: $pink1;
+  }
+}
+.page_miniature-root:active {
+  .page_miniature-1 {
+    background: $gradient-1;
+  }
+  .page_miniature-2 {
+    opacity: $opasity_hov;
+  }
 }
 </style>

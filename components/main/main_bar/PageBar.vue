@@ -1,7 +1,14 @@
 <template>
   <div class="page_bar-root">
-    <div class="page_bar-breadcrumbs">{{ CurrentPage.name }}</div>
-    <div class="page_bar-buttons">
+    <div class="page_bar-buttons-left">
+      <span>{{ CurrentPage.name }}</span>
+      <button class="page_bar-button"></button>
+
+      <button class="page_bar-button"></button>
+
+      <button class="page_bar-button"></button>
+    </div>
+    <div class="page_bar-buttons-right">
       <button class="page_bar-button"></button>
 
       <button class="page_bar-button"></button>
@@ -23,13 +30,19 @@ export default {
 </script>
 <style lang="scss">
 .page_bar-root {
-  margin: 9px 40px 0 40px;
+  margin: 24px 0;
   padding-bottom: 7px;
   display: flex;
   justify-content: space-between;
 }
-.page_bar-buttons {
+.page_bar-buttons-right {
   display: flex;
+}
+.page_bar-buttons-left {
+  span {
+    font-family: $font-fredoka;
+    font-size: $font_size-2;
+  }
 }
 .page_bar-button {
   margin-left: 13px;

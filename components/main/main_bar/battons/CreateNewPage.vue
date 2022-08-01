@@ -60,6 +60,6 @@ export default {
   }
 }
 .create_new_page-root:hover {
-  background: $gradient-1_op;
+    opacity: $opasity_hov
 }
 </style>

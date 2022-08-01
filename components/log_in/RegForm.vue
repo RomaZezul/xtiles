@@ -71,15 +71,15 @@ export default {
 </script>
 <style lang="scss">
 .reg_form-root {
-  width: $size-11;
   input {
-    width: $size-11;
+    width: 100%;
     height: $size-12;
     background: $grey4;
     border-radius: $radius-6;
     outline-color: $grey1;
     border: 1px solid $white;
     margin: 0;
+    padding: 0;
     margin-top: 16px;
     font-size: $font_size-1;
     font-family: $font-fredoka;
@@ -89,16 +89,16 @@ export default {
     font-size: $font_size-3;
   }
   button {
-    width: $size-11;
+    width: 100%;
     height: $size-12;
     font-size: $font_size-1;
     font-family: $font-fredoka;
-
     background: $pink1;
     color: $white;
     border-radius: $radius-6;
     border: 1px solid $white;
     margin: 0;
+    padding: 0;
     margin-top: 28px;
   }
 }

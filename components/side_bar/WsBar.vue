@@ -28,5 +28,6 @@ export default {
   display: flex;
   flex-direction: column;
   width: $size-1 + 10px;
+  position: relative;
 }
 </style>

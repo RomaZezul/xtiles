@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <aside class="app_aside">
+
       <SideBar />
     </aside>
     <main class="app_main">
@@ -11,6 +12,7 @@
     </header>
     <ModalWindovsCreateWs />
     <ModalWindovsProfile />
+    <ModalWindovsToolmenuWs />
   </div>
 </template>
 <script>
@@ -29,7 +31,6 @@ export default {
       //   "pagge/SET_CURENT_PAGE",
       //   JSON.parse(localStorage.getItem("CurrentPage"))
       // );
-
     }
   },
 };
@@ -44,7 +45,6 @@ export default {
   right: 0;
   position: fixed;
 }
-
 .app_aside {
   position: fixed;
   width: $size-1;

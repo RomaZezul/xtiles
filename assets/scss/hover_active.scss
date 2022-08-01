@@ -1,36 +1,4 @@
-a.nuxt-link-exact-active{
-  background: $pink1;
-  div {
-    rect {
-      stroke: $white;
-    }
-    path {
-      stroke: $white;
-      fill: $white;
-    }
-    div {
-      color: $white;
-    }
-  }
-}
-.link:hover{
-  background: $pink1;
-  div {
-    rect {
-      stroke: $white;
-    }
-    path {
-      stroke: $white;
-      fill: $white;
-    }
-    div {
-      color: $white;
-    }
-  }
-}
-.link:active {
-  background: $pink2;
-}
+
 .link1{
   text-decoration: underline;
   color: $pink1;

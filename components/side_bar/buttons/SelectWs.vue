@@ -1,11 +1,11 @@
 <template>
   <div>
-    <button
+    <div
       v-bind:class="{ active: isActive }"
-      class="selectWS-link link"
-      @click="SelectWs(id)"
+      class="select_ws-root"
+      @click="SelectWs()"
     >
-      <div class="selectWS-container">
+      <div class="select_ws-container">
         <svg
           width="15"
           height="15"
@@ -29,8 +29,9 @@
         <div>
           {{ name }}
         </div>
+        <SideBarButtonsToolmenuWs :id="id" :name="name" />
       </div>
-    </button>
+    </div>
   </div>
 </template>
 
@@ -40,7 +41,7 @@ export default {
   name: "SelectWs",
   props: ["id", "name"],
   methods: {
-    SelectWs(id) {
+    SelectWs() {
       this.$store.commit("workspace/SET_CURENT_WS", {
         name: this.name,
         id: this.id,
@@ -61,7 +62,7 @@ export default {
 
 
 <style lang="scss">
-.selectWS-link {
+.select_ws-root {
   width: calc($size-1 - 20px);
   height: 31px;
   background: $grey4;
@@ -74,7 +75,26 @@ export default {
   margin-bottom: 10px;
   text-decoration: none;
 }
-.selectWS-container {
+
+.select_ws-root:hover {
+  background: $pink1;
+  div {
+    rect {
+      stroke: $white;
+    }
+    path {
+      stroke: $white;
+      fill: $white;
+    }
+    div {
+      color: $white;
+    }
+  }
+}
+.select_ws-root:active {
+  opacity: $opasity_hov;
+}
+.select_ws-container {
   margin-left: $size-4;
   display: flex;
   align-items: center;

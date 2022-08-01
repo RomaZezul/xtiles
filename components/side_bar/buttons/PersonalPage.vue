@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink to="/personal" class="personal_page-link link">
+  <NuxtLink to="/personal" class="personal_page-root">
     <div class="personal_page-container">
       <svg
         width="14"
@@ -22,12 +22,29 @@
 
 
 <script>
-export default {};
+export default {
+};
 </script>
 
-
 <style lang="scss">
-.personal_page-link {
+a.nuxt-link-exact-active {
+  background: $pink1;
+  div {
+    rect {
+      stroke: $white;
+    }
+    path {
+      stroke: $white;
+      fill: $white;
+    }
+    div {
+      color: $white;
+    }
+  }
+}
+</style>
+<style lang="scss">
+.personal_page-root {
   width: calc($size-1 - 20px);
   height: 31px;
   background: $grey4;
@@ -38,6 +55,24 @@ export default {};
   padding: 0;
   margin: 0;
   text-decoration: none;
+}
+.personal_page-root:hover {
+  background: $pink1;
+  div {
+    rect {
+      stroke: $white;
+    }
+    path {
+      stroke: $white;
+      fill: $white;
+    }
+    div {
+      color: $white;
+    }
+  }
+}
+.personal_page-root:active {
+  opacity: $opasity_hov;
 }
 .personal_page-container {
   margin-left: $size-4;

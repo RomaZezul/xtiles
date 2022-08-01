@@ -1,9 +1,7 @@
 <template>
   <div class="logIn-root">
-    <div class="logIn-logo">
-      <LogInLogo />
-    </div>
-    <div v-if="isShow">
+    <LogInLogo />
+    <div v-if="isShow" class="logIn-wrap">
       <h1>Welcome to xtiles</h1>
       <div class="text">
         Don`t have an account?
@@ -13,7 +11,7 @@
         <LogInLoginForm />
       </div>
     </div>
-    <div v-if="!isShow">
+    <div v-if="!isShow" class="logIn-wrap">
       <h1>Create Account</h1>
       <div class="text">
         Already have an account?
@@ -23,6 +21,12 @@
         <LogInRegForm />
       </div>
     </div>
+    <div class="or">
+      <div></div>
+      <span>Or Continue With</span>
+      <div></div>
+    </div>
+    <LogInGoogleLogin />
   </div>
 </template>
 
@@ -52,33 +56,45 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  width: 100%;
   background: $white;
   border-radius: $radius-5;
   font-family: $font-fredoka;
   text-align: center;
-
-  h1 {
-    margin: 0;
-    margin-top: 28px;
-    font-size: $font_size-2;
-    line-height: 29px;
-    color: $black1;
-    font-weight: 400;
-  }
+  padding: 30px 57px;
 }
-.logIn-logo {
+h1 {
   margin: 0;
-  margin-top: 53px;
-  overflow: auto;
+  margin-top: 28px;
+  font-size: $font_size-2;
+  color: $grey3;
+  font-weight: 400;
+}
+
+.logIn-wrap {
+  min-width: 380px;
+  max-width: 380px;
 }
 .text {
   font-weight: 400;
-  font-size: $font_size-3;
-  line-height: 12px;
-  color: $black1;
+  font-size: $font_size-1;
+  color: $grey3;
   margin: 0;
   margin-top: 14px;
+}
+.or {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  width: 100%;
+  div {
+    width: 100%;
+    border: 1px solid $grey4;
+  }
+  span {
+    white-space: nowrap;
+    margin: 14px;
+    color: $grey3;
+  }
 }
 </style>
