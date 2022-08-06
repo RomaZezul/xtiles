@@ -56,9 +56,9 @@ export default {};
 
 <style lang="scss">
  .color-4{
-  fill: $color-4;
+  fill: $pink1;
  }
  .color-3{
-  fill: $color-3;
+  fill: $grey3;
  }
  </style>

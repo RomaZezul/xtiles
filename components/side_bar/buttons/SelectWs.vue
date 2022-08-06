@@ -1,7 +1,11 @@
 <template>
   <div>
-    <NuxtLink class="selectWS-link link" :to="`/workspace/${id}`">
-      <div class="selectWS-container">
+    <div
+      v-bind:class="{ active: isActive }"
+      class="select_ws-root"
+      @click="SelectWs()"
+    >
+      <div class="select_ws-container">
         <svg
           width="15"
           height="15"
@@ -25,8 +29,9 @@
         <div>
           {{ name }}
         </div>
+        <SideBarButtonsToolmenuWs :id="id" :name="name" />
       </div>
-    </NuxtLink>
+    </div>
   </div>
 </template>
 
@@ -35,15 +40,32 @@
 export default {
   name: "SelectWs",
   props: ["id", "name"],
+  methods: {
+    SelectWs() {
+      this.$store.commit("workspace/SET_CURENT_WS", {
+        name: this.name,
+        id: this.id,
+      });
+      this.$store.dispatch("workspace/GET_WORKSPACE");
+
+      this.$router.push("/workspace");
+    },
+  },
+  computed: {
+    isActive() {
+      if (this.id == this.$store.state.workspace.CurrentWs.id) return true;
+      else return false;
+    },
+  },
 };
 </script>
 
 
 <style lang="scss">
-.selectWS-link {
-  width: 150px;
-  height: 24px;
-  background: $color-1;
+.select_ws-root {
+  width: calc($size-1 - 20px);
+  height: 31px;
+  background: $grey4;
   border-radius: $radius-2;
   display: flex;
   align-items: center;
@@ -53,28 +75,62 @@ export default {
   margin-bottom: 10px;
   text-decoration: none;
 }
-.selectWS-container {
+
+.select_ws-root:hover {
+  background: $pink1;
+  div {
+    rect {
+      stroke: $white;
+    }
+    path {
+      stroke: $white;
+      fill: $white;
+    }
+    div {
+      color: $white;
+    }
+  }
+}
+.select_ws-root:active {
+  opacity: $opasity_hov;
+}
+.select_ws-container {
   margin-left: $size-4;
   display: flex;
   align-items: center;
   rect {
-    stroke: $color-5;
+    stroke: $grey1;
   }
   path {
-    stroke: $color-5;
-    fill: $color-5;
+    stroke: $grey1;
+    fill: $grey1;
   }
   div {
     margin-left: $size-5;
     font-family: $font-fredoka;
     font-weight: 400;
     font-size: $font_size-1;
-    color: $color-5;
-    width: 90px;
+    color: $grey1;
+    width: 110px;
     text-align: left;
     overflow-x: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap
+    white-space: nowrap;
+  }
+}
+.active {
+  background: $pink1;
+  div {
+    rect {
+      stroke: $white;
+    }
+    path {
+      stroke: $white;
+      fill: $white;
+    }
+    div {
+      color: $white;
+    }
   }
 }
 </style>

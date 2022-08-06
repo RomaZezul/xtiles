@@ -1,5 +1,5 @@
 <template>
-  <button class="page_miniature-root" @click="route(id)">
+  <button class="page_miniature-root" @click="route()">
     <div class="page_miniature-1">
       <div class="page_miniature-2"></div>
     </div>
@@ -13,8 +13,13 @@ export default {
   name: "PageMiniature",
   props: ["name", "date", "id"],
   methods: {
-    route(id) {
-      this.$router.push("/" + id);
+    route() {
+      this.$store.commit("pagge/SET_CURENT_PAGE", {
+        name: this.name,
+        id: this.id,
+      });
+
+      this.$router.push("/page");
     },
   },
 };
@@ -22,26 +27,36 @@ export default {
 
 <style lang="scss">
 .page_miniature-root {
-  display: flex;
-  align-content: flex-start;
-  flex-direction: column;
   border-style: none;
-  background: $color-2;
-  margin: $size-10;
+  background: #ffffff;
+  margin: 0;
+  padding: 0;
+  text-align: left;
 }
 .page_miniature-1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: $size-6;
   height: $size-7;
   background: $gradient-1;
   border-radius: $radius-3;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
 }
 .page_miniature-2 {
-  width: $size-8;
-  height: $size-9;
-  background: $color-7;
+  background: $grey5;
   border-radius: $radius-4;
+  height: inherit;
+}
+.page_miniature-root:hover {
+  .page_miniature-1 {
+    background: $pink1;
+  }
+}
+.page_miniature-root:active {
+  .page_miniature-1 {
+    background: $gradient-1;
+  }
+  .page_miniature-2 {
+    opacity: $opasity_hov;
+  }
 }
 </style>

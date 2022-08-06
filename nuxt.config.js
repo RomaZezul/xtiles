@@ -1,4 +1,8 @@
 export default {
+  //  server: {
+  //     host: '192.168.0.101', // default: localhost
+  //     port: 3131
+  //   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'xtiles',
@@ -22,15 +26,16 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/scss/colors',
-    '@/assets/scss/size',
-    '@/assets/scss/font',
-    '@/assets/scss/hover_active',
+    
+    //'@/assets/scss/main.scss'
 
   ],
   styleResources: {
     scss: [
-      './assets/scss/*.scss',
+      './assets/scss/colors.scss',
+      './assets/scss/size.scss',
+      './assets/scss/font.scss',
+
     ]
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -59,7 +64,9 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'https://xtiels.azurewebsites.net',
+    //baseURL: 'https://xtiels.azurewebsites.net',
+        baseURL: 'https://localhost:44347',
+
   },
 
 

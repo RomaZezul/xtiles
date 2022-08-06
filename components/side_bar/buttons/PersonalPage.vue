@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink to="/personal" class="personal_page-link link">
+  <NuxtLink to="/personal" class="personal_page-root">
     <div class="personal_page-container">
       <svg
         width="14"
@@ -22,15 +22,32 @@
 
 
 <script>
-export default {};
+export default {
+};
 </script>
 
-
 <style lang="scss">
-.personal_page-link {
-  width: 150px;
-  height: 24px;
-  background: $color-1;
+a.nuxt-link-exact-active {
+  background: $pink1;
+  div {
+    rect {
+      stroke: $white;
+    }
+    path {
+      stroke: $white;
+      fill: $white;
+    }
+    div {
+      color: $white;
+    }
+  }
+}
+</style>
+<style lang="scss">
+.personal_page-root {
+  width: calc($size-1 - 20px);
+  height: 31px;
+  background: $grey4;
   border-radius: $radius-2;
   display: flex;
   align-items: center;
@@ -39,24 +56,41 @@ export default {};
   margin: 0;
   text-decoration: none;
 }
+.personal_page-root:hover {
+  background: $pink1;
+  div {
+    rect {
+      stroke: $white;
+    }
+    path {
+      stroke: $white;
+      fill: $white;
+    }
+    div {
+      color: $white;
+    }
+  }
+}
+.personal_page-root:active {
+  opacity: $opasity_hov;
+}
 .personal_page-container {
   margin-left: $size-4;
   display: flex;
   align-items: center;
   rect {
-    stroke: $color-5;
+    stroke: $grey1;
   }
   path {
-    stroke: $color-5;
-    fill: $color-5;
+    stroke: $grey1;
+    fill: $grey1;
   }
   div {
     margin-left: $size-5;
     font-family: $font-fredoka;
     font-weight: 400;
     font-size: $font_size-1;
-    line-height: 15px;
-    color: $color-5;
+    color: $grey1;
     text-align: left;
     overflow-x: hidden;
     text-overflow: ellipsis;

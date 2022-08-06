@@ -1,5 +1,5 @@
 <template>
-  <button class="create_ws-root" @click="SETshowModal(true)">
+  <button class="create_new_page-root" @click="CreatePage">
     <svg
       width="14"
       height="14"
@@ -17,29 +17,30 @@
       />
       <circle cx="7" cy="7" r="6.5" />
     </svg>
-    <span>Create new workspace</span>
+    <span>Create new page</span>
   </button>
 </template>
-   
-
 <script>
 export default {
   methods: {
-    SETshowModal(b) {
-      this.$store.commit("workspace/SET_SHOW_MODAL", b);
+    CreatePage() {
+      this.$store.commit("pagge/SET_CURENT_PAGE", {
+        name: "Untitled",
+        id: 0,
+      });
+      this.$router.push("/page");
     },
   },
 };
 </script>
 <style lang="scss">
-.create_ws-root {
-  position: relative;
-  width: 193px;
-  min-height: 34px;
-margin: 18px auto;
+.create_new_page-root {
+  width: 176px;
+  height: 32px;
   background: $gradient-1;
   border-radius: 8px;
   border-style: none;
+  margin-left: $size-4;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -58,8 +59,7 @@ margin: 18px auto;
     color: $white;
   }
 }
-.create_ws-root:hover {
-       opacity: $opasity_hov
-
+.create_new_page-root:hover {
+    opacity: $opasity_hov
 }
 </style>
