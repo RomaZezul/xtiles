@@ -50,14 +50,15 @@ export default {
   flex-direction: row;
   justify-content: flex-start;
   width: 60%;
-}
-span {
-  text-align: left;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: $font-fredoka;
-  font-size: $font_size-1;
+
+  span {
+    text-align: left;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: $font-fredoka;
+    font-size: $font_size-1;
+  }
 }
 .app_bar-buttons {
   display: flex;
