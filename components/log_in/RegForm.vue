@@ -2,7 +2,6 @@
   <div class="reg_form-root">
     <form @submit.prevent="userRegister">
       <input
-        class="style_input"
         type="username"
         id="inputUsername"
         placeholder="username"
@@ -11,7 +10,6 @@
         v-model="register.userName"
       />
       <input
-        class="style_input"
         type="email"
         id="email"
         placeholder="email"
@@ -20,7 +18,6 @@
         v-model="register.email"
       />
       <input
-        class="style_input"
         type="password"
         id="Password"
         placeholder="password"
@@ -28,7 +25,7 @@
         autocomplete="current-password"
         v-model="register.password"
       />
-      <button class="form-button" type="submit">Регистрация</button>
+      <button class="form-button" type="submit">Create Account</button>
     </form>
   </div>
 </template>
@@ -70,36 +67,19 @@ export default {
 };
 </script>
 <style lang="scss">
+     @import './assets/scss/mixin/buttton_stile.scss';
+     @import './assets/scss/mixin/input_sile.scss';
+
 .reg_form-root {
   input {
-    width: 100%;
-    height: $size-12;
-    background: $grey4;
-    border-radius: $radius-6;
-    outline-color: $grey1;
-    border: 1px solid $white;
-    margin: 0;
-    padding: 0;
-    margin-top: 16px;
-    font-size: $font_size-1;
-    font-family: $font-fredoka;
+    @include input_form;
   }
   span {
     margin: 0;
     font-size: $font_size-3;
   }
   button {
-    width: 100%;
-    height: $size-12;
-    font-size: $font_size-1;
-    font-family: $font-fredoka;
-    background: $pink1;
-    color: $white;
-    border-radius: $radius-6;
-    border: 1px solid $white;
-    margin: 0;
-    padding: 0;
-    margin-top: 28px;
+    @include button_form;
   }
 }
 </style>

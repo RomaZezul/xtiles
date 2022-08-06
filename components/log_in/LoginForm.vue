@@ -2,7 +2,6 @@
   <div class="login_form-root">
     <form @submit.prevent="userLogin">
       <input
-        class="style_input"
         type="email"
         id="email"
         placeholder="email"
@@ -10,11 +9,10 @@
         autocomplete="email"
         v-model="login.email"
       />
-      <div style="text-align: right; margin-top: 30px; margin-bottom: -8px">
-        <span class="link1">Forgot Password?</span>
+      <div class="login_form_forgot_password">
+        <span>Forgot Password?</span>
       </div>
       <input
-        class="style_input"
         type="password"
         id="Password"
         autocomplete="current-password"
@@ -53,36 +51,24 @@ export default {
 };
 </script>
 <style lang="scss">
+     @import './assets/scss/mixin/buttton_stile.scss';
+     @import './assets/scss/mixin/input_sile.scss';
+
 .login_form-root {
   input {
-    width: 100%;
-    height: $size-12;
-    background: $grey4;
-    border-radius: $radius-6;
-    outline-color: $grey1;
-    border: 1px solid $white;
-    margin: 0;
-    padding: 0;
-    margin-top: 16px;
-    font-size: $font_size-1;
-    font-family: $font-fredoka;
-  }
-  span {
-    margin: 0;
-    font-size: $font_size-3;
-  }
+    @include input_form;
+    }
   button {
-    width: 100%;
-    height: $size-12;
-    font-size: $font_size-1;
-    font-family: $font-fredoka;
-    background: $pink1;
-    color: $white;
-    border-radius: $radius-6;
-    border: 1px solid $white;
-    margin: 0;
-    padding: 0;
-    margin-top: 28px;
+    @include button_form;
+  }
+}
+
+.login_form_forgot_password {
+  text-align: right;
+  margin-top: 30px;
+  margin-bottom: -8px;
+  span {
+    @include link;
   }
 }
 </style>

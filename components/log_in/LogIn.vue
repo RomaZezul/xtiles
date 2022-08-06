@@ -5,21 +5,17 @@
       <h1>Welcome to xtiles</h1>
       <div class="text">
         Don`t have an account?
-        <span class="link1" @click="showD">Sign up for free</span>
+        <span @click="showD">Sign up for free</span>
       </div>
-      <div class="form-login">
-        <LogInLoginForm />
-      </div>
+      <LogInLoginForm />
     </div>
     <div v-if="!isShow" class="logIn-wrap">
       <h1>Create Account</h1>
       <div class="text">
         Already have an account?
-        <span class="link1" @click="showD">Sign In</span>
+        <span @click="showD">Sign In</span>
       </div>
-      <div class="forn-reg">
-        <LogInRegForm />
-      </div>
+      <LogInRegForm />
     </div>
     <div class="or">
       <div></div>
@@ -52,6 +48,8 @@ export default {
 </script>
 
 <style lang="scss">
+     @import './assets/scss/mixin/buttton_stile.scss';
+
 .logIn-root {
   display: flex;
   flex-direction: column;
@@ -80,6 +78,9 @@ h1 {
   color: $grey3;
   margin: 0;
   margin-top: 14px;
+  span {
+    @include link;
+  }
 }
 .or {
   display: flex;

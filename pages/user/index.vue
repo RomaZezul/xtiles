@@ -13,6 +13,7 @@ export default {
 };
 </script>
 <style lang="scss">
+
 .login-root {
   background: $grey4;
   display: flex;

@@ -7,8 +7,8 @@
       <ModalWindovsProfileInfo />
       <div class="modal_profile-body">
         <button @click="SETshowModal(true)">Account Settings</button>
-        <div style="text-align: right; margin-top: 44px;">
-          <span class="link1" @click="logouts">Sign out</span>
+        <div class="modal_profile-logout">
+          <span @click="logouts">Sign out</span>
         </div>
       </div>
     </div>
@@ -52,6 +52,8 @@ export default {
 </script>
 
 <style lang="scss">
+     @import './assets/scss/mixin/buttton_stile.scss';
+
 $width_modal_profile: 348px;
 
 .modal_profile-mask {
@@ -114,5 +116,11 @@ $width_modal_profile: 348px;
   button:active {
     background: $pink2;
   }
+}
+.modal_profile-logout {
+  text-align: right;
+  margin-top: 44px;
+  // span {
+  @include link; // }
 }
 </style>

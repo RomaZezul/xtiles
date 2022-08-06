@@ -14,6 +14,7 @@
 </template>
 
 <script>
+
 export default {
   name: "IndexPage",
   auth: false,
@@ -27,6 +28,9 @@ this.$router.push("/user")
 </script>
 
 <style lang="scss">
-
+     @import './assets/scss/mixin/buttton_stile.scss';
+.link1{
+  @include link;
+}
 
 </style>

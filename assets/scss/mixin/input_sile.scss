@@ -1,0 +1,21 @@
+@mixin input_form {
+    width: 100%;
+    height: $size-12;
+    background: $grey4;
+    border-radius: $radius-6;
+    outline-color: $grey1;
+    border: 1px solid $white;
+    margin: 0;
+    padding: 0;
+    margin-top: 16px;
+    font-size: $font_size-1;
+    font-family: $font-fredoka;
+
+    &:hover {
+        border: 1px solid $grey1;
+    }
+
+    &:active {
+        border: 1px solid $grey1;
+    }
+}

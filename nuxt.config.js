@@ -1,8 +1,8 @@
 export default {
-   server: {
-      host: '192.168.0.101', // default: localhost
-      port: 3131
-    },
+  //  server: {
+  //     host: '192.168.0.101', // default: localhost
+  //     port: 3131
+  //   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'xtiles',
@@ -25,12 +25,15 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     
-    '@/assets/scss/main.scss'
+    //'@/assets/scss/main.scss'
 
   ],
   styleResources: {
     scss: [
-      './assets/scss/*.scss',
+      './assets/scss/colors.scss',
+      './assets/scss/size.scss',
+      './assets/scss/font.scss',
+
     ]
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
