@@ -43,7 +43,6 @@ export default {
     async createWorkspace() {
       try {
         this.$store.dispatch("workspace/CREATE_WORKSPACE", this.newWs.name);
-        this.$store.dispatch("workspace/GET_WORKSPACE");
         this.closeModal();
       } catch (err) {
         console.log(err);
@@ -128,13 +127,13 @@ $width_create_ws_modal: 444px;
       border-style: none;
       background: $grey5;
       color: $grey2;
-    }
-    button:hover {
-      background: $pink1;
-      color: $white;
-    }
-    button:active {
-      background: $pink2;
+      &:hover {
+        background: $pink1;
+        color: $white;
+      }
+      &:active {
+        background: $pink2;
+      }
     }
   }
 }

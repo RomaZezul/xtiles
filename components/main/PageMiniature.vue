@@ -32,6 +32,19 @@ export default {
   margin: 0;
   padding: 0;
   text-align: left;
+  &:hover {
+    .page_miniature-1 {
+      background: $pink1;
+    }
+  }
+  &:active {
+    .page_miniature-1 {
+      background: $gradient-1;
+    }
+    .page_miniature-2 {
+      opacity: $opasity_hov;
+    }
+  }
 }
 .page_miniature-1 {
   height: $size-7;
@@ -45,18 +58,5 @@ export default {
   background: $grey5;
   border-radius: $radius-4;
   height: inherit;
-}
-.page_miniature-root:hover {
-  .page_miniature-1 {
-    background: $pink1;
-  }
-}
-.page_miniature-root:active {
-  .page_miniature-1 {
-    background: $gradient-1;
-  }
-  .page_miniature-2 {
-    opacity: $opasity_hov;
-  }
 }
 </style>

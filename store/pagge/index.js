@@ -31,13 +31,13 @@ export const actions = {
         if (respons.status == 200) {
             context.commit("SET_CURENT_PAGE", respons.data);
         }
-        context.dispatch("GET_PAGE")
+        context.dispatch("GET_PAGE");
     },
 
     async GET_PAGE(context) {
         let respons = await this.$axios.get("/api/pages/" + localStorage.getItem('CurrentPage'));
         context.commit("SET_CURENT_PAGE", respons.data);
-        context.commit("blocks/SET_BLOCKS", respons.data.listBlocks, {
+        context.commit("block/SET_BLOCKS", respons.data.listBlocks, {
             root: true
         });
 

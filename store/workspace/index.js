@@ -27,7 +27,7 @@ export const actions = {
         if (respons.status == 200) {
             context.commit("SET_CURENT_WS", respons.data);
             this.$router.push("/workspace");
-            context.dispatch("SET_WORKSPACES")
+            context.dispatch("GET_WORKSPACE")
         }
 
     },

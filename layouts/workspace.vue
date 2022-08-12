@@ -1,7 +1,6 @@
 <template>
   <div class="app">
     <aside class="app_aside">
-
       <SideBar />
     </aside>
     <main class="app_main">
@@ -13,6 +12,7 @@
     <ModalWindovsCreateWs />
     <ModalWindovsProfile />
     <ModalWindovsToolmenuWs />
+    <ModalWindovsBlockToolmenu />
   </div>
 </template>
 <script>
@@ -20,23 +20,23 @@ export default {
   name: "LayoutWs",
   async beforeMount() {
     if (this.$auth.loggedIn) {
-      this.$store.dispatch("workspace/SET_WORKSPACES");
       let us = await this.$axios.get("/api/account/username");
       await this.$auth.setUser(us.data);
-      // this.$store.commit(
-      //   "workspace/SET_CURENT_WS",
-      //   JSON.parse(localStorage.getItem("CurrentWs"))
-      // );
-      // this.$store.commit(
-      //   "pagge/SET_CURENT_PAGE",
-      //   JSON.parse(localStorage.getItem("CurrentPage"))
-      // );
     }
+    if (localStorage.getItem("CurrentWs") > 0) {
+      this.$store.dispatch("workspace/GET_WORKSPACE");
+    } else this.$store.dispatch("workspace/SET_WORKSPACES");
   },
 };
 </script>
 
 <style lang="scss">
+*::selection {
+  background: transparent;
+}
+* {
+  cursor: default;
+}
 .app {
   background: $grey4;
   top: 0;

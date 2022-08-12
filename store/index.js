@@ -1,6 +1,6 @@
 export const state = () => ({
     showF: true,
-    isPage: false
+    isPage: false//Если true, значит на странице Page
 })
 export const mutations = {
     SET_SHOW_F(state, value) {
