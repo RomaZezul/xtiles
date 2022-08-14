@@ -23,9 +23,7 @@ export default {
       let us = await this.$axios.get("/api/account/username");
       await this.$auth.setUser(us.data);
     }
-    if (localStorage.getItem("CurrentWs") > 0) {
       this.$store.dispatch("workspace/GET_WORKSPACE");
-    } else this.$store.dispatch("workspace/SET_WORKSPACES");
   },
 };
 </script>

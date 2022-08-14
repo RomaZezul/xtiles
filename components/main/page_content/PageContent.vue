@@ -11,9 +11,5 @@ export default {};
 .page_content-root {
   height: 100%;
   overflow-y: scroll;
-  &::-webkit-scrollbar{
-    width: 4px;
-    margin: -10px;
-  }
 }
 </style>

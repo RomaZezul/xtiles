@@ -5,8 +5,9 @@
       :style="{ left: coords.left + 'px', top: coords.top + 'px' }"
     >
       <div class="toolmenu_modal_ws-container">
-        <button @click="closeModal">Close</button>
-        <button>Create</button>
+        <button @click="closeModal">Close</button><br>
+        <button @click="deleteWs">Delite</button><br>
+        <button @click="settingsWs">Settings</button>
       </div>
     </div>
   </div>
@@ -21,6 +22,13 @@ export default {
     closeModal() {
       this.$store.commit("workspace/toolmenu/SET_SHOW_MODAL", false);
     },
+    deleteWs(){
+      this.$store.dispatch("workspace/toolmenu/DELETE_WS");
+      this.closeModal();
+    },
+    settingsWs(){
+
+    }
   },
   computed: {
     GETshowModal() {

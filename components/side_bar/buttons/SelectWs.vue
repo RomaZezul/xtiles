@@ -4,6 +4,8 @@
       v-bind:class="{ active: isActive }"
       class="select_ws-root"
       @click="SelectWs()"
+      @mouseover="mouseover"
+      @mouseout="mouseout"
     >
       <div class="select_ws-container">
         <svg
@@ -29,7 +31,7 @@
         <div>
           {{ name }}
         </div>
-        <SideBarButtonsToolmenuWs :id="id" :name="name" />
+        <SideBarButtonsToolmenuWs :id="id" :name="name" :showMenu="showMenu" />
       </div>
     </div>
   </div>
@@ -40,6 +42,9 @@
 export default {
   name: "SelectWs",
   props: ["id", "name"],
+  data() {
+    return { showMenu: false };
+  },
   methods: {
     SelectWs() {
       this.$store.commit("workspace/SET_CURENT_WS", {
@@ -47,8 +52,13 @@ export default {
         id: this.id,
       });
       this.$store.dispatch("workspace/GET_WORKSPACE");
-
       this.$router.push("/workspace");
+    },
+    mouseover() {
+      this.showMenu = true;
+    },
+    mouseout() {
+      this.showMenu = false;
     },
   },
   computed: {
@@ -74,26 +84,26 @@ export default {
   margin: 0;
   margin-bottom: 10px;
   text-decoration: none;
-}
-
-.select_ws-root:hover {
-  background: $pink1;
-  div {
-    rect {
-      stroke: $white;
-    }
-    path {
-      stroke: $white;
-      fill: $white;
-    }
+  &:active {
+    opacity: $opasity_hov;
+  }
+  &:hover {
+    background: $pink1;
     div {
-      color: $white;
+      rect {
+        stroke: $white;
+      }
+      path {
+        stroke: $white;
+        fill: $white;
+      }
+      div {
+        color: $white;
+      }
     }
   }
 }
-.select_ws-root:active {
-  opacity: $opasity_hov;
-}
+
 .select_ws-container {
   margin-left: $size-4;
   display: flex;

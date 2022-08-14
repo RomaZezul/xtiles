@@ -1,8 +1,9 @@
 <template >
   <button
-    id="toolmenu-root-id"
+    v-show="showMenu || isActive"
+    :id="id"
     class="toolmenu-root"
-    @click.stop="SETshowModal(true, $event)"
+    @click.stop="SETshowModal()"
   >
     <svg
       width="3"
@@ -19,24 +20,32 @@
 </template>
 <script>
 export default {
-  props: ["id", "name"],
+  name: "ToolmenuWs",
+  props: ["id", "name", "showMenu"],
   data() {
-    return {
-      coords: 0,
-    };
+    return { show: false };
   },
 
   methods: {
-    SETshowModal(b, e) {
-      this.$store.commit("workspace/toolmenu/SET_SHOW_MODAL", b);
-      //let elem = document.getElementById("toolmenu-root-id");
-      //this.coords = elem.getBoundingClientRect();
-      console.log(e);
-      this.coords = {x: e.pageX, y: e.pageY}
+    SETshowModal() {
+      this.show = true;
+      let elem = document.getElementById(this.id).getBoundingClientRect();
       this.$store.commit("workspace/toolmenu/SET_COORDS", {
-        left: this.coords.x,
-        top: this.coords.y,
+        left: elem.x + 20,
+        top: elem.y + 20,
       });
+      this.$store.commit("workspace/toolmenu/SET_SHOW_MODAL", true);
+      this.$store.commit("workspace/toolmenu/SET_WS", {
+        name: this.name,
+        id: this.id,
+      });
+    },
+  },
+  computed: {
+    isActive() {
+      if (!this.$store.state.workspace.toolmenu.showModal)
+        return (this.show = false);
+      if (this.$store.state.workspace.toolmenu.showModal) return this.show;
     },
   },
 };
