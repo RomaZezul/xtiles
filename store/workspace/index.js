@@ -23,6 +23,9 @@ export const mutations = {
 
 export const actions = {
     async CREATE_WORKSPACE(context, name) {
+        if(name=="")
+        name="Untitled"
+
         let respons = await this.$axios.post("/api/workspaces", { name: name, });
         if (respons.status == 200) {
             context.commit("SET_CURENT_WS", respons.data);

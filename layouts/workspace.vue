@@ -9,10 +9,14 @@
     <header class="app_header">
       <AppBar />
     </header>
-    <ModalWindovsCreateWs />
+    <ModalWindovsWsCreate />
     <ModalWindovsProfile />
-    <ModalWindovsToolmenuWs />
+    <ModalWindovsWsToolmenu />
     <ModalWindovsBlockToolmenu />
+    <ModalWindovsPaggeToolmenu />
+    <ModalWindovsPaggeRename />
+    <ModalWindovsWsToolmenuSettings />
+    <ModalWindovsProfileSettings />
   </div>
 </template>
 <script>
@@ -23,7 +27,7 @@ export default {
       let us = await this.$axios.get("/api/account/username");
       await this.$auth.setUser(us.data);
     }
-      this.$store.dispatch("workspace/GET_WORKSPACE");
+    this.$store.dispatch("workspace/GET_WORKSPACE");
   },
 };
 </script>

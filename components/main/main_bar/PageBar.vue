@@ -1,7 +1,7 @@
 <template>
   <div class="page_bar-root">
     <div class="page_bar-buttons-left">
-      <span>{{ CurrentPage.name }}</span>
+      <span @click="rename">{{ CurrentPage.name }}</span>
       <button class="page_bar-button"></button>
 
       <button class="page_bar-button"></button>
@@ -19,6 +19,14 @@
 </template>
 <script>
 export default {
+  methods: {
+    rename() {
+      this.$store.commit("pagge/toolmenu/SET_PAGE", {
+        id: localStorage.getItem("CurrentPage"),
+      });
+      this.$store.commit("pagge/toolmenu/SET_SHOW_MODAL_RENAME", true);
+    },
+  },
   computed: {
     CurrentPage() {
       if (this.$store.state.pagge.CurrentPage) {

@@ -1,13 +1,17 @@
 <template>
-  <div @click.self="closeModal" class="toolmenu_modal_ws-mask" v-if="GETshowModal">
+  <div
+    @click.self="closeModal"
+    class="toolmenu_modal_ws-mask"
+    v-if="GETshowModal"
+  >
     <div
       class="toolmenu_modal_ws-wrapper"
       :style="{ left: coords.left + 'px', top: coords.top + 'px' }"
     >
       <div class="toolmenu_modal_ws-container">
-        <button @click="closeModal">Close</button><br>
-        <button @click="deleteWs">Delite</button><br>
-        <button @click="settingsWs">Settings</button>
+        <button @click="closeModal">Close</button><br />
+        <button @click="deleteWs">Delite</button><br />
+        <button @click="rename">Rename</button>
       </div>
     </div>
   </div>
@@ -22,13 +26,14 @@ export default {
     closeModal() {
       this.$store.commit("workspace/toolmenu/SET_SHOW_MODAL", false);
     },
-    deleteWs(){
+    deleteWs() {
       this.$store.dispatch("workspace/toolmenu/DELETE_WS");
       this.closeModal();
     },
-    settingsWs(){
-
-    }
+    rename() {
+      this.$store.commit("workspace/toolmenu/SET_SHOW_MODAL_RENAME", true);
+      this.closeModal();
+    },
   },
   computed: {
     GETshowModal() {
@@ -57,7 +62,7 @@ export default {
 }
 
 .toolmenu_modal_ws-container {
-  width: 300px;
+  width: 200px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: $white;

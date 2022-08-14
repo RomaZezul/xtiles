@@ -14,7 +14,7 @@ export default {
       var yBl = this.$store.state.block.CurrentBlock.y;
       //var wBl = this.$store.state.block.CurrentBlock.width;
       //var hBl = this.$store.state.block.CurrentBlock.height;
-      var x = c.width - e.x > e.x ? e.x : e.x - 360;
+      var x = c.width - e.x > e.x ? e.x : e.x - 260;
       console.log(c);
       var y = c.height - yBl > yBl ? yBl + 25 : yBl - 61;
       this.$store.commit("block/toolmenu/SET_COORDS", {

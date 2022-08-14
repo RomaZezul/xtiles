@@ -57,7 +57,7 @@ export default {
 }
 
 .toolmenu_modal_block-container {
-  width: 300px;
+  width: 200px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: $white;

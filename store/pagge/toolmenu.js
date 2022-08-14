@@ -1,15 +1,15 @@
 export const state = () => ({
     showModal: false,
     showModalRename: false,
+
     coords: {
         left: 0,
         top: 0
     },
-    Ws: {
+    Page: {
         name: '',
         id: ''
-    },
-
+    }
 })
 
 export const mutations = {
@@ -19,9 +19,10 @@ export const mutations = {
     SET_SHOW_MODAL_RENAME(state, value) {
         state.showModalRename = value;
     },
-    SET_WS(state, value) {
-        state.Ws = value;
+    SET_PAGE(state, value) {
+        state.Page = value;
     },
+
 
     SET_COORDS(state, value) {
         state.coords = value;
@@ -29,26 +30,29 @@ export const mutations = {
 }
 
 export const actions = {
-    async DELETE_WS(context) {
-        let respons = await this.$axios.delete("/api/workspaces/" + context.state.Ws.id);
-        if (localStorage.getItem("CurrentWs") == context.state.Ws.id)
-            localStorage.setItem("CurrentWs", 0);
+    async DELETE_PAGE(context) {
+        let respons = await this.$axios.delete("/api/pages/" + context.state.Page.id);
+        if (localStorage.getItem("CurrentPage") == context.state.Page.id)
+            localStorage.setItem("CurrentPage", 0);
         context.dispatch("workspace/GET_WORKSPACE", null, {
             root: true
         });
 
     },
     async RENAME(context, value) {
-        let respons = await this.$axios.put("/api/workspaces/" + context.state.Ws.id,{
-            name:value
+        if(value=="")
+        value="Untitled"
+        var res = await this.$axios.put("/api/pages/" + context.state.Page.id, {
+            name: value
         });
-        // if (localStorage.getItem("CurrentWs") == context.state.Ws.id)
-        //     localStorage.setItem("CurrentWs", 0);
         context.dispatch("workspace/GET_WORKSPACE", null, {
             root: true
         });
-
-    }
+        if (localStorage.getItem("CurrentPage") == context.state.Page.id) {
+            context.commit("pagge/SET_CURENT_PAGE", res.data, {
+                root: true
+            });
+        }
+    },
 
 }
-

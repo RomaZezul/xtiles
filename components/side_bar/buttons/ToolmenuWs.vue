@@ -60,9 +60,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.toolmenu-root:hover {
-  background: $pink2;
-  color: $grey2;
+  &:hover {
+    background: $pink2;
+    color: $grey2;
+  }
 }
 </style>
