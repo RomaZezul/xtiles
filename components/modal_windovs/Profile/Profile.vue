@@ -6,7 +6,7 @@
       <div class="modal_profile-header">Profile</div>
       <ModalWindovsProfileInfo />
       <div class="modal_profile-body">
-        <button @click="SETshowModal(true)">Account Settings</button>
+        <button @click="SETshowModal()">Account Settings</button>
         <div class="modal_profile-logout">
           <span @click="logouts">Sign out</span>
         </div>
@@ -35,6 +35,7 @@ export default {
       this.$router.push("/");
       this.closeModal();
     },
+    SETshowModal(){}
   },
   computed: {
     GETshowModal() {

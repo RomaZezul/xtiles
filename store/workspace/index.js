@@ -17,31 +17,38 @@ export const mutations = {
     },
     SET_SHOW_MODAL(state, value) {
         state.showModal = value;
-    }
+    },
 
 }
 
 export const actions = {
     async CREATE_WORKSPACE(context, name) {
+        if(name=="")
+        name="Untitled"
+
         let respons = await this.$axios.post("/api/workspaces", { name: name, });
         if (respons.status == 200) {
             context.commit("SET_CURENT_WS", respons.data);
             this.$router.push("/workspace");
-            context.dispatch("SET_WORKSPACES")
+            context.dispatch("GET_WORKSPACE")
         }
 
     },
 
     async GET_WORKSPACE(context) {
-        let respons = await this.$axios.get("/api/workspaces/" + localStorage.getItem("CurrentWs"));
-        context.commit("SET_CURENT_WS", {
-            name: respons.data.name,
-            id: respons.data.id
-        });
+        if (localStorage.getItem("CurrentWs") > 0) {
+            let respons = await this.$axios.get("/api/workspaces/" + localStorage.getItem("CurrentWs"));
+            context.commit("SET_CURENT_WS", {
+                name: respons.data.name,
+                id: respons.data.id
+            });
+            context.commit("pagge/SET_PAGES", respons.data.pages, {
+                root: true
+            });
+
+        }else            this.$router.push("/personal");
+
         context.dispatch("SET_WORKSPACES")
-        context.commit("pagge/SET_PAGES", respons.data.pages, {
-            root: true
-        });
 
     },
 

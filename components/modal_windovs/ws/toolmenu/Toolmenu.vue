@@ -1,12 +1,17 @@
 <template>
-  <div @click.self="closeModal" class="toolmenu_modal-mask" v-if="GETshowModal">
+  <div
+    @click.self="closeModal"
+    class="toolmenu_modal_ws-mask"
+    v-if="GETshowModal"
+  >
     <div
-      class="toolmenu_modal-wrapper"
+      class="toolmenu_modal_ws-wrapper"
       :style="{ left: coords.left + 'px', top: coords.top + 'px' }"
     >
-      <div class="toolmenu_modal-container">
-        <button @click="closeModal">Close</button>
-        <button>Create</button>
+      <div class="toolmenu_modal_ws-container">
+        <button @click="closeModal">Close</button><br />
+        <button @click="deleteWs">Delite</button><br />
+        <button @click="rename">Rename</button>
       </div>
     </div>
   </div>
@@ -15,12 +20,19 @@
 
 <script>
 export default {
-  name: "ModalToolmenu",
+  name: "ModalToolmenuWs",
 
   methods: {
     closeModal() {
       this.$store.commit("workspace/toolmenu/SET_SHOW_MODAL", false);
-      console.log(this.coords)
+    },
+    deleteWs() {
+      this.$store.dispatch("workspace/toolmenu/DELETE_WS");
+      this.closeModal();
+    },
+    rename() {
+      this.$store.commit("workspace/toolmenu/SET_SHOW_MODAL_RENAME", true);
+      this.closeModal();
     },
   },
   computed: {
@@ -36,7 +48,7 @@ export default {
 
 
 <style lang="scss">
-.toolmenu_modal-mask {
+.toolmenu_modal_ws-mask {
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -45,12 +57,12 @@ export default {
   height: 100%;
 }
 
-.toolmenu_modal-wrapper {
+.toolmenu_modal_ws-wrapper {
   position: fixed;
 }
 
-.toolmenu_modal-container {
-  width: 300px;
+.toolmenu_modal_ws-container {
+  width: 200px;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: $white;

@@ -1,4 +1,5 @@
-$size-1: 221px;
+$s1: 221;
+$size-1: $s1 + px;
 $size-2: 44px;
 $size-4: 27px;
 $size-5: 14px;
@@ -11,7 +12,9 @@ $size-11: 268px;
 $size-12: 33px;
 $stripe_height: 28px;
 
-
+:export{
+    s1: $s1;
+}
 
 //
 $radius-1: 23px;

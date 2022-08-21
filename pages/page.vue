@@ -1,43 +1,46 @@
 <template >
   <div class="page-root">
-    <PageBar />
-    <div>
-      {{ CurrentPage.name }}
-    </div>
+    <MainMainBarPageBar />
+    <MainPageContent />
   </div>
 </template>
 <script>
-import PageBar from '~/components/main/main_bar/PageBar.vue';
 export default {
-    layout: "workspace",
+  layout: "workspace",
+  created() {
+          this.$store.commit("SWITCH_PAGE", true);//показ. хлебные крошки
+
+  },
     beforeMount() {
-        if (localStorage.getItem("CurrentPage") == null) {
-            this.$router.push("/personal");
-        }
-        this.$store.commit("SWITCH_PAGE", true);
+      if (localStorage.getItem("CurrentPage") == null) {
+        this.$router.push("/personal");
+      }
     },
     mounted() {
-        if (localStorage.getItem("CurrentPage") == 0) {
-            this.$store.dispatch("pagge/CREATE_PAGE");
-        }
-        else {
-            this.$store.dispatch("pagge/GET_PAGE");
-        }
+        console.log(localStorage.getItem("CurrentPage"));
+        console.log("CurrentPage");
+
+
+      if (localStorage.getItem("CurrentPage") == 0) {
+        this.$store.dispatch("pagge/CREATE_PAGE");
+      } else {
+        this.$store.dispatch("pagge/GET_PAGE");
+      }
     },
-    computed: {
-        CurrentPage() {
-            if (this.$store.state.pagge.CurrentPage) {
-                return this.$store.state.pagge.CurrentPage;
-            }
-            else
-                return "";
-        },
+  computed: {
+    CurrentPage() {
+      if (this.$store.state.pagge.CurrentPage) {
+        return this.$store.state.pagge.CurrentPage;
+      } else return "";
     },
-    components: { PageBar }
+  },
 };
 </script>
 <style lang="scss">
-.page-root{
+.page-root {
+  height: 100%;
   margin: 0 40px;
+  display: flex;
+  flex-direction: column;
 }
 </style>

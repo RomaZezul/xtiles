@@ -24,7 +24,6 @@ export default {
     if (localStorage.getItem("CurrentWs") == null) {
       this.$router.push("/personal");
     }
-    this.$store.dispatch("workspace/GET_WORKSPACE");
     this.$store.commit("SWITCH_PAGE", false)
   },
 
