@@ -11,11 +11,27 @@
     class="block_container-root"
   >
     <MainPageContentBlockHeader :title="title" />
+
+    <MainPageContentBlockElement
+      class="block_container-elements"
+      v-for="element in listElements"
+      :key="element.id"
+      :element="element"
+    />
+    <MainPageContentBlockElementCreateElement v-if="show" />
+    <div v-if="!show" class="create_element" @click="showInput()">
+      Write here...
+    </div>
   </div>
 </template>
 <script>
 export default {
-  props: ["x", "y", "w", "h", "title", "id"],
+  props: ["x", "y", "w", "h", "title", "id", "listElements"],
+  data() {
+    return {
+      show: false,
+    };
+  },
   methods: {
     mousedown() {
       var c = document.getElementById(this.id).getBoundingClientRect();
@@ -25,8 +41,11 @@ export default {
         height: c.height,
         width: c.width,
         id: this.id,
-        title: this.title
+        title: this.title,
       });
+    },
+    showInput() {
+      this.show = true;
     },
   },
   computed: {
@@ -53,5 +72,19 @@ export default {
   margin: -4px;
   padding: 3px;
   background: $white;
+  display: flex;
+  flex-direction: column;
+}
+.block_container-elements {
+  margin-top: 5px;
+}
+.create_element {
+  widows: 100%;
+  height: 100%;
+  margin-top: 5px;
+  opacity: 0;
+  &:hover {
+    opacity: 1;
+  }
 }
 </style>

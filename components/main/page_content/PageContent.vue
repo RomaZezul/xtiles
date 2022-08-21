@@ -1,7 +1,6 @@
 <template>
   <div class="page_content-root">
-            <MainPagePoints />
-
+    <MainPagePoints />
   </div>
 </template>
 <script>

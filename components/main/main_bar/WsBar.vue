@@ -1,6 +1,6 @@
 <template>
   <div class="ws_bar-root">
-    <div class="ws_bar-ws_name">{{ CurrentWs.name }}</div>
+    <div @click="rename()" class="ws_bar-ws_name">{{ CurrentWs.name }}</div>
     <div class="ws_bar-buttons">
       <button class="ws_bar-button"></button>
 
@@ -11,6 +11,14 @@
 </template>
 <script>
 export default {
+  methods: {
+    rename() {
+      this.$store.commit("workspace/toolmenu/SET_WS", {
+        id: localStorage.getItem("CurrentWs")
+      });
+      this.$store.commit("workspace/toolmenu/SET_SHOW_MODAL_RENAME", true);
+    },
+  },
   computed: {
     CurrentWs() {
       return this.$store.state.workspace.CurrentWs;

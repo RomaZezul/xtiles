@@ -39,8 +39,10 @@ export const actions = {
 
     },
     async RENAME(context, value) {
-        let respons = await this.$axios.put("/api/workspaces/" + context.state.Ws.id,{
-            name:value
+        if (value == "")
+            value = "Untitled"
+        let respons = await this.$axios.put("/api/workspaces/" + context.state.Ws.id, {
+            name: value
         });
         // if (localStorage.getItem("CurrentWs") == context.state.Ws.id)
         //     localStorage.setItem("CurrentWs", 0);

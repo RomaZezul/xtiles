@@ -16,6 +16,7 @@
       :w="block.width"
       :h="block.height"
       :id="block.id"
+      :listElements="block.listElements"
     />
     <MainPageContentBlockOutline
       v-if="Show"
@@ -67,16 +68,16 @@ export default {
     },
     mousemove(e) {
       var widthP = this.wEl / 50;
-      if (this.down) {
+      if (this.down) { //min new block
         this.show = true;
         this.w = 12; //%
-        this.h = 24; //px
+        this.h = 48; //px
       }
       if (e.pageX - this.xSt > 6 * widthP && this.down) {
         this.w = Math.trunc((e.pageX - this.xSt) / widthP) * 2;
         this.show = true;
       }
-      if (e.pageY - this.ySt > 24 && this.down) {
+      if (e.pageY - this.ySt > 48 && this.down) {
         this.h = Math.trunc((e.pageY - this.ySt) / 24) * 24;
         this.show = true;
       }

@@ -1,12 +1,12 @@
 <template>
   <div class="app">
-    <aside class="app_aside">
+    <aside class="app_aside" :style="{left: sizeSB1}">
       <SideBar />
     </aside>
-    <main class="app_main">
+    <main class="app_main" :style="{'margin-left': sizeSB}">
       <Nuxt />
     </main>
-    <header class="app_header">
+    <header class="app_header" :style="{'margin-left':sizeSB}">
       <AppBar />
     </header>
     <ModalWindovsWsCreate />
@@ -29,6 +29,14 @@ export default {
     }
     this.$store.dispatch("workspace/GET_WORKSPACE");
   },
+  computed:{
+    sizeSB(){
+      return this.$store.state.sizeSB + 'px'
+    },
+    sizeSB1(){
+      return this.$store.state.sizeSB1 + 'px'
+    }
+  }
 };
 </script>
 

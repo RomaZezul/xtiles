@@ -47,9 +47,15 @@ export default {
   display: flex;
 }
 .page_bar-buttons-left {
+  display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    margin-right: 20px;
   span {
     font-family: $font-fredoka;
     font-size: $font_size-2;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
   }
 }
 .page_bar-button {

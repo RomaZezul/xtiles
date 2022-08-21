@@ -140,6 +140,7 @@ export default {
 
 .page_miniature-info {
   margin: 10px;
+  display: grid;
   div {
     font-family: $font-fredoka;
     font-weight: 400;

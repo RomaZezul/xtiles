@@ -33,6 +33,7 @@ export default {
   border-top-left-radius: 10px;
   width: 100%;
   height: 14px;
+  cursor: pointer;
   &:hover {
     background: $grey4;
   }
