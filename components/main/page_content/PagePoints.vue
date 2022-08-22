@@ -19,7 +19,7 @@
       :listElements="block.listElements"
     />
     <MainPageContentBlockOutline
-      v-show="Show"
+      v-if="Show"
       :x="this.x"
       :y="this.y"
       :w="this.w"

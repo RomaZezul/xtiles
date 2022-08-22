@@ -41,7 +41,7 @@ export default {
   margin: -4px;
   padding: 3px;
   background: $blue1;
-  opacity: 20%;
+  opacity: 0.2;
   display: flex;
   align-items: center;
   justify-content: center;
