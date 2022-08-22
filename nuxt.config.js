@@ -67,7 +67,7 @@ export default {
     //baseURL: 'https://xtiels.azurewebsites.net',
         //baseURL: 'https://localhost:44347',
         //baseURL: 'http://xTiles.somee.com/PUBLISCH',
-        baseURL: 'http://workspace.somee.com',
+        baseURL: 'https://workspace.somee.com',
 
   },
 
