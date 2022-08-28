@@ -1,11 +1,19 @@
 <template >
-  <div class="google_login-root">
+  <div class="google_login-root" @click="userLogin()">
     <img src="/google.png" alt="" />
     <span>Sign in with google</span>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    async userLogin() {
+      this.$auth.loginWith("google");
+      let us = await this.$axios.get("/api/account/username");
+      await this.$auth.setUser(us.data);
+    },
+  },
+};
 </script>
 <style lang="scss">
 .google_login-root {

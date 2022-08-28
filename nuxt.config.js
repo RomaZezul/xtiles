@@ -97,7 +97,23 @@ export default {
           logout: false, //{ url: '/api/auth/logout', method: 'post' },
           user: false// { url: '/api/account/username', method: 'get' }
         }
-      }
+      },
+      google: {
+        clientId: '824867412701-fgqpga536giig7p9uto5n7175q6d1195.apps.googleusercontent.com',
+        codeChallengeMethod: '',
+        responseType: 'code',
+        token: {
+          property: 'access_token',
+          type: 'Bearer',
+          global: true,
+        },
+        endpoints: {
+          token: '/google/',
+          userInfo: false
+        },
+      },
+
+
     }
   },
 
