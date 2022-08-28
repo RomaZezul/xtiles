@@ -1,12 +1,12 @@
 @mixin input_form {
-    width: 100%;
+    width: stretch;
     height: $size-12;
     background: $grey4;
     border-radius: $radius-6;
     outline-color: $grey1;
     border: 1px solid $white;
     margin: 0;
-    padding: 0;
+    padding: 0 15px;
     margin-top: 16px;
     font-size: $font_size-1;
     font-family: $font-fredoka;

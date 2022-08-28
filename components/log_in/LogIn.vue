@@ -90,7 +90,8 @@ h1 {
   width: 100%;
   div {
     width: 100%;
-    border: 1px solid $grey4;
+    height: 1px;
+    background: $grey4;
   }
   span {
     white-space: nowrap;

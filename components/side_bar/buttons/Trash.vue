@@ -1,5 +1,5 @@
 <template>
-  <div class="trash-root">
+  <div class="trash-root" @click="SETshowModal()">
     <svg
       width="15"
       height="17"
@@ -17,10 +17,17 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    SETshowModal() {
+      this.$store.commit("trash/SET_SHOW_MODAL", true);
+    },
+  },
+};
 </script>
 <style lang="scss">
 .trash-root {
+  cursor: pointer;
   margin: 21px auto;
   svg {
     path {
@@ -32,16 +39,8 @@ export default {};
     font-size: $font_size-1;
     color: $grey3;
   }
-}
-.trash-root:hover {
-  cursor: pointer;
-  svg {
-    path {
-      fill: $grey2;
-    }
-  }
-  span {
-    color: $grey2;
+  &:hover {
+    opacity: $opasity_hov;
   }
 }
 </style>

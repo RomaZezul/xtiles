@@ -30,18 +30,16 @@ export const mutations = {
 }
 
 export const actions = {
-    async DELETE_PAGE(context) {
-        let respons = await this.$axios.delete("/api/pages/" + context.state.Page.id);
-        if (localStorage.getItem("CurrentPage") == context.state.Page.id)
-            localStorage.setItem("CurrentPage", 0);
+    async PAGE_TO_TRASH(context) {
+        let respons = await this.$axios.put("/api/pages/PushPullPageToTrash/" + context.state.Page.id);
         context.dispatch("workspace/GET_WORKSPACE", null, {
             root: true
         });
-
+        context.dispatch("trash/GET_LIST_PAGE", null, { root: true });
     },
     async RENAME(context, value) {
-        if(value=="")
-        value="Untitled"
+        if (value == "")
+            value = "Untitled"
         var res = await this.$axios.put("/api/pages/" + context.state.Page.id, {
             name: value
         });
