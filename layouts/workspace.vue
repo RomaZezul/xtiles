@@ -1,12 +1,12 @@
 <template>
   <div class="app">
-    <aside class="app_aside" :style="{left: sizeSB1}">
+    <aside class="app_aside" :style="{ left: sizeSB1 }">
       <SideBar />
     </aside>
-    <main class="app_main" :style="{'margin-left': sizeSB}">
+    <main class="app_main" :style="{ 'margin-left': sizeSB }">
       <Nuxt />
     </main>
-    <header class="app_header" :style="{'margin-left':sizeSB}">
+    <header class="app_header" :style="{ 'margin-left': sizeSB }">
       <AppBar />
     </header>
     <ModalWindovsWsCreate />
@@ -17,6 +17,7 @@
     <ModalWindovsPaggeRename />
     <ModalWindovsWsToolmenuSettings />
     <ModalWindovsProfileSettings />
+    <ModalWindovsTrash />
   </div>
 </template>
 <script>
@@ -28,25 +29,20 @@ export default {
       await this.$auth.setUser(us.data);
     }
     this.$store.dispatch("workspace/GET_WORKSPACE");
+    this.$store.dispatch("trash/GET_LIST_PAGE");
   },
-  computed:{
-    sizeSB(){
-      return this.$store.state.sizeSB + 'px'
+  computed: {
+    sizeSB() {
+      return this.$store.state.sizeSB + "px";
     },
-    sizeSB1(){
-      return this.$store.state.sizeSB1 + 'px'
-    }
-  }
+    sizeSB1() {
+      return this.$store.state.sizeSB1 + "px";
+    },
+  },
 };
 </script>
 
 <style lang="scss">
-*::selection {
-  background: transparent;
-}
-* {
-  cursor: default;
-}
 .app {
   background: $grey4;
   top: 0;

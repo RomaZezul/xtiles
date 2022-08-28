@@ -3,7 +3,6 @@ export const state = () => ({
         name: 'Untitled',
         id: 0
     },
-    showModal: false,
     pages: [],
 
 })
@@ -16,10 +15,6 @@ export const mutations = {
     SET_PAGES(state, value) {
         state.pages = value
     },
-    SET_SHOW_MODAL(state, value) {
-        state.showModal = value;
-    }
-
 }
 
 export const actions = {

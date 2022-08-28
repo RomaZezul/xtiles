@@ -1,5 +1,5 @@
 <template>
-  <button class="create_ws-root" @click="SETshowModal(true)">
+  <button class="create_ws-root" @click="SETshowModal()">
     <svg
       width="14"
       height="14"
@@ -25,8 +25,8 @@
 <script>
 export default {
   methods: {
-    SETshowModal(b) {
-      this.$store.commit("workspace/SET_SHOW_MODAL", b);
+    SETshowModal() {
+      this.$store.commit("workspace/SET_SHOW_MODAL", true);
     },
   },
 };
