@@ -102,13 +102,9 @@ export default {
         clientId: '824867412701-fgqpga536giig7p9uto5n7175q6d1195.apps.googleusercontent.com',
         codeChallengeMethod: '',
         responseType: 'code',
-        token: {
-          property: 'access_token',
-          type: 'Bearer',
-          global: true,
-        },
+        redirectUri: 'https://www.workspace.somee.com/signin-google',
         endpoints: {
-          token: '/google/',
+          token: false,
           userInfo: false
         },
       },

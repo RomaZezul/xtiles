@@ -9,8 +9,6 @@ export default {
   methods: {
     async userLogin() {
       this.$auth.loginWith("google");
-      let us = await this.$axios.get("/api/account/username");
-      await this.$auth.setUser(us.data);
     },
   },
 };
