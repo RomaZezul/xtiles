@@ -39,10 +39,10 @@ export default {
   methods: {
     async userLogin() {
       try {
-        let response = await this.$auth.loginWith("local", {
+        let response = await this.$auth.loginWith("local2", {
           data: this.login,
         });
-        await this.$auth.setUser(response.data);
+        //await this.$auth.setUser(response.data);
       } catch (err) {
         console.log(err);
       }
