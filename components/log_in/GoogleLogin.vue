@@ -9,7 +9,7 @@ export default {
         callback: this.handleCredentialResponse, //method to run after user clicks the Google sign in button
         context: 'signin'
       })
-    google.accounts.id.prompt()
+    //google.accounts.id.prompt()
     // render button
     google.accounts.id.renderButton(
       document.getElementById('googleButton'),
