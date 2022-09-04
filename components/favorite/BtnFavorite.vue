@@ -59,6 +59,10 @@ export default {
   border-radius: 8px;
   padding: 5px;
   margin: 2px 0;
+  
+  font-weight: 400;
+  font-size: $font_size-1;
+  color: $grey3;
   #x {
     display: none;
   }

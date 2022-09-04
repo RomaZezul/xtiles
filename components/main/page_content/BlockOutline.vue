@@ -45,7 +45,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: $font-fredoka;
+  
   font-weight: 600;
   font-size: $font_size-2;
   color: $black1;

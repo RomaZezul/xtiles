@@ -80,7 +80,7 @@ $width_create_ws_modal: 444px;
   text-align: center;
   border-radius: $radius_modal;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  font-family: $font-fredoka;
+  
 }
 
 .toolmenu_settings_modal_ws-stripe {

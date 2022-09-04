@@ -76,7 +76,7 @@ export default {
   }
   span {
     margin: 0;
-    font-size: $font_size-3;
+    font-size: $font_size-1;
   }
   button {
     @include button_form;

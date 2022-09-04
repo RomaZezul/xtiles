@@ -60,7 +60,7 @@ export default {
   position: absolute;
   top: 0px;
   left: -38px;
-  font-family: $font-fredoka;
+  
   font-size: $font_size-2;
   font-weight: 700;
   cursor: pointer;
@@ -86,7 +86,7 @@ export default {
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-family: $font-fredoka;
+    
     font-size: $font_size-1;
   }
 }

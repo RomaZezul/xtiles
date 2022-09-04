@@ -50,7 +50,7 @@ export default {
   align-items: center;
   span {
     font-size: $font_size-1;
-    font-family: $font-fredoka;
+    
     margin-left: 7px;
     color: $grey1;
   }

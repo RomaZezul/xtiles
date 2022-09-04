@@ -35,7 +35,6 @@ export default {
     }
   }
   span {
-    font: $font-fredoka;
     font-size: $font_size-1;
     color: $grey3;
   }

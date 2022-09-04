@@ -47,6 +47,10 @@ export const actions = {
         context.dispatch("workspace/GET_WORKSPACE", null, {
             root: true
         });
+        context.dispatch("favorite/GET_LIST_FAVORITE_PAGE", null, {
+            root: true
+        });
+
         if (localStorage.getItem("CurrentPage") == context.state.Page.id) {
             context.commit("pagge/SET_CURENT_PAGE", res.data, {
                 root: true
