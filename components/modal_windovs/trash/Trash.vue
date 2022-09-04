@@ -66,8 +66,8 @@ export default {
 
 .trash_toolmenu_modal-container {
   width: 240px;
-  margin: 0px auto;
-  padding: 20px 30px;
+  margin: 0px;
+  padding: 10px;
   background-color: $white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
@@ -81,7 +81,7 @@ export default {
   padding-bottom: 15px;
   margin-bottom: 15px;
   span {
-    font-family: $font-fredoka;
+    
     font-weight: 600;
     font-size: $font_size-1;
     color: $grey3;

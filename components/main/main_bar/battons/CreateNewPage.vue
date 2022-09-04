@@ -54,7 +54,7 @@ export default {
   }
   span {
     font-size: $font_size-1;
-    font-family: $font-fredoka;
+    
     font-weight: 400;
     color: $white;
   }

@@ -56,7 +56,7 @@ export default {
   align-items: center;
   background: $white;
   border-radius: $radius-5;
-  font-family: $font-fredoka;
+  
   text-align: center;
   padding: 30px 57px;
 }

@@ -53,7 +53,7 @@ export default {
   overflow-x: hidden;
   margin-right: 20px;
   span {
-    font-family: $font-fredoka;
+    
     font-size: $font_size-2;
     overflow-x: hidden;
     text-overflow: ellipsis;

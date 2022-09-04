@@ -115,7 +115,7 @@ export default {
   }
   div {
     margin-left: $size-5;
-    font-family: $font-fredoka;
+    
     font-weight: 400;
     font-size: $font_size-1;
     color: $grey1;

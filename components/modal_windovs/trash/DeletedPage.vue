@@ -75,6 +75,12 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  span {
+    
+    font-weight: 400;
+    font-size: $font_size-1;
+    color: $grey3;
+  }
 }
 .deleted_page-buttons {
   display: flex;
@@ -83,9 +89,29 @@ export default {
   transform: rotateY(180deg);
   margin: 0 5px;
   cursor: pointer;
+  height: 28px;
+  width: 28px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: $grey5;
+  }
 }
 .deleted_page-del {
   margin: 0 5px;
   cursor: pointer;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: $grey5;
+  }
 }
 </style>

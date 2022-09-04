@@ -34,7 +34,7 @@ export default {
   justify-content: space-between;
 }
 .ws_bar-ws_name {
-  font-family: $font-fredoka;
+  
   font-size: $font_size-2;
   text-align: left;
   overflow-x: hidden;

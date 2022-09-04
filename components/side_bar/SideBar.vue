@@ -37,7 +37,7 @@ export default {
   p {
     margin-left: auto;
     margin-right: auto;
-    font-family: $font-fredoka;
+    
     margin-top: 17px;
     font-size: $font_size-1;
     color: $grey3;
