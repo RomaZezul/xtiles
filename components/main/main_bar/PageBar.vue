@@ -2,18 +2,18 @@
   <div class="page_bar-root">
     <div class="page_bar-buttons-left">
       <span @click="rename">{{ CurrentPage.name }}</span>
-      <button class="page_bar-button"></button>
+      <div class="page_bar-button-left"></div>
 
-      <button class="page_bar-button"></button>
+      <div class="page_bar-button-left"></div>
 
-      <button class="page_bar-button"></button>
+      <MainMainBarBattonsAddFavorite class="page_bar-button-left" />
     </div>
     <div class="page_bar-buttons-right">
-      <button class="page_bar-button"></button>
+      <button class="page_bar-button-right"></button>
 
-      <button class="page_bar-button"></button>
+      <button class="page_bar-button-right"></button>
 
-      <button class="page_bar-button"></button>
+      <button class="page_bar-button-right"></button>
     </div>
   </div>
 </template>
@@ -48,9 +48,10 @@ export default {
 }
 .page_bar-buttons-left {
   display: flex;
-    flex-direction: row;
-    overflow-x: hidden;
-    margin-right: 20px;
+  flex-direction: row;
+  align-items: flex-end;
+  overflow-x: hidden;
+  margin-right: 20px;
   span {
     font-family: $font-fredoka;
     font-size: $font_size-2;
@@ -58,7 +59,7 @@ export default {
     text-overflow: ellipsis;
   }
 }
-.page_bar-button {
+.page_bar-button-left {
   margin-left: 13px;
 }
 </style>

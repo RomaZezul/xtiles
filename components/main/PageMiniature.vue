@@ -33,7 +33,7 @@
 <script>
 export default {
   name: "PageMiniature",
-  props: ["name", "date", "id"],
+  props: ["name", "date", "id", "favorite"],
   data() {
     return { show: false };
   },
@@ -41,10 +41,8 @@ export default {
   methods: {
     route() {
       this.$store.commit("pagge/SET_CURENT_PAGE", {
-        name: this.name,
         id: this.id,
       });
-
       this.$router.push("/page");
     },
     SETshowModal() {
@@ -62,6 +60,7 @@ export default {
       this.$store.commit("pagge/toolmenu/SET_PAGE", {
         name: this.name,
         id: this.id,
+        favorite: this.favorite,
       });
     },
     correctDate() {

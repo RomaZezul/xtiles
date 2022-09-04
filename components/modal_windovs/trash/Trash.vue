@@ -32,12 +32,6 @@ export default {
     closeModal() {
       this.$store.commit("trash/SET_SHOW_MODAL", false);
     },
-    // deletePage() {
-    //   //this.$store.dispatch("pagge/toolmenu/DELETE_PAGE");
-    //   this.$store.dispatch("pagge/toolmenu/PAGE_TO_TRASH");
-
-    //   this.closeModal();
-    // },
     ClearAll() {
       this.$store.dispatch("trash/CLEAR_ALL");
     },

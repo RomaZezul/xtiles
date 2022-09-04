@@ -9,8 +9,22 @@
       :style="{ left: coords.left, top: coords.top }"
     >
       <div class="toolmenu_modal_page-container">
-        <button @click="closeModal">Close</button><br />
-        <button @click="addToFavorites">Add to favorites</button><br />
+        <div class="add_favorite" @click="addToFavorites">
+          <svg xmlns="http://www.w3.org/2000/svg">
+            <path
+              id="fil"
+              v-if="isFavorite"
+              d="M6.18389 0.793735C6.37507 0.454032 6.86419 0.454032 7.05536 0.793734L8.39296 3.17049C8.61679 3.56821 9.0095 3.8424 9.45999 3.91547L12.176 4.35604C12.5825 4.42198 12.7395 4.92355 12.4431 5.20946L10.6016 6.98579C10.251 7.32397 10.0865 7.81134 10.1603 8.29282L10.5457 10.805C10.6061 11.1989 10.204 11.5017 9.84215 11.3349L7.24758 10.1389C6.8491 9.95521 6.39016 9.95521 5.99168 10.1389L3.39711 11.3349C3.03523 11.5017 2.63315 11.1989 2.69357 10.805L3.07894 8.29282C3.1528 7.81134 2.98825 7.32397 2.63766 6.98579L0.796147 5.20946C0.499751 4.92355 0.656713 4.42198 1.06321 4.35604L3.77927 3.91547C4.22976 3.8424 4.62247 3.56821 4.8463 3.17049L6.18389 0.793735Z"
+            />
+            <path
+              id="str"
+              v-else
+              d="M5.74816 0.548511C6.13051 -0.130893 7.10874 -0.130894 7.4911 0.548511L8.82869 2.92527C8.97791 3.19041 9.23972 3.37321 9.54005 3.42192L12.2561 3.8625C13.0691 3.99437 13.383 4.99751 12.7902 5.56932L10.9487 7.34566C10.715 7.57111 10.6053 7.89602 10.6545 8.21701L11.0399 10.7292C11.1607 11.517 10.3566 12.1226 9.63283 11.789L7.03826 10.593C6.77261 10.4705 6.46665 10.4705 6.20099 10.593L3.60643 11.789C2.88267 12.1226 2.07852 11.517 2.19935 10.7292L2.58472 8.21701C2.63396 7.89602 2.52426 7.57111 2.29053 7.34566L0.44902 5.56932C-0.143772 4.99751 0.170151 3.99437 0.983156 3.8625L3.69921 3.42192C3.99954 3.37321 4.26135 3.19041 4.41056 2.92527L5.74816 0.548511Z"
+            />
+          </svg>
+          Add to favorites
+        </div>
+
         <button @click="rename">Rename</button><br />
         <button @click="deletePage">Delete</button><br />
       </div>
@@ -32,7 +46,7 @@ export default {
       this.closeModal();
     },
     addToFavorites() {
-      this.$store.dispatch("pagge/toolmenu/ADD_TO_FAVORITES");
+      this.$store.dispatch("pagge/toolmenu/ADD_REMOVE_FAVORITE");
       this.closeModal();
     },
     rename() {
@@ -46,6 +60,9 @@ export default {
     },
     coords() {
       return this.$store.state.pagge.toolmenu.coords;
+    },
+    isFavorite() {
+      return this.$store.state.pagge.toolmenu.Page.favorite;
     },
   },
 };
@@ -73,5 +90,34 @@ export default {
   background-color: $white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+}
+.add_favorite {
+  height: 24px;
+  width: 190px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  svg {
+    height: 14px;
+    width: 14px;
+    margin: 5px;
+    fill: none;
+    #str {
+      stroke: $grey2;
+    }
+    #fil {
+      fill: $grey2;
+    }
+  }
+  &:hover {
+    background: $grey5;
+    #str {
+      stroke: $black1;
+    }
+    #fil {
+      fill: $black1;
+    }
+  }
 }
 </style>

@@ -20,7 +20,7 @@ export const mutations = {
             state.Arrow = '<<'
         } else {
             state.sizeSB = 10;
-            state.sizeSB1 = 221;
+            state.sizeSB1 = 10;
             state.Arrow = '>>'
         }
     },

@@ -9,7 +9,7 @@
 
       <button class="app_bar-button"></button>
 
-      <button class="app_bar-button"></button>
+      <AppBarButtonsFavorite class="app_bar-button" />
 
       <AppBarButtonsOpenProfile class="app_bar-button" />
     </div>
@@ -63,6 +63,14 @@ export default {
   font-family: $font-fredoka;
   font-size: $font_size-2;
   font-weight: 700;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  border-radius: 16px;
+  text-align: center;
+  &:hover {
+    background: $grey5;
+  }
 }
 .app_bar-breadcrumbs {
   display: flex;
@@ -84,6 +92,7 @@ export default {
 }
 .app_bar-buttons {
   display: flex;
+  align-items: center;
 }
 .app_bar-button {
   margin-left: 13px;

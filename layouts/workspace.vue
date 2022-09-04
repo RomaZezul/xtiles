@@ -18,6 +18,7 @@
     <ModalWindovsWsToolmenuSettings />
     <ModalWindovsProfileSettings />
     <ModalWindovsTrash />
+    <ModalWindovsFavorite />
   </div>
 </template>
 <script>
@@ -30,6 +31,7 @@ export default {
     }
     this.$store.dispatch("workspace/GET_WORKSPACE");
     this.$store.dispatch("trash/GET_LIST_PAGE");
+    this.$store.dispatch("favorite/GET_LIST_FAVORITE_PAGE");
   },
   computed: {
     sizeSB() {

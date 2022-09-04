@@ -74,6 +74,8 @@ export default {
   background: $white;
   display: flex;
   flex-direction: column;
+    cursor: text;
+
 }
 .block_container-elements {
   margin-top: 5px;
