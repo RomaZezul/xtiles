@@ -8,7 +8,9 @@ export const state = () => ({
     },
     Page: {
         name: '',
-        id: ''
+        id: '',
+        favorite: true,
+
     }
 })
 
@@ -22,7 +24,6 @@ export const mutations = {
     SET_PAGE(state, value) {
         state.Page = value;
     },
-
 
     SET_COORDS(state, value) {
         state.coords = value;
@@ -52,5 +53,15 @@ export const actions = {
             });
         }
     },
+    async ADD_REMOVE_FAVORITE(context) {
+        let respons = await this.$axios.put("/api/pages/AddToFavourite/" + context.state.Page.id,)
+        context.dispatch("favorite/GET_LIST_FAVORITE_PAGE", null, {
+            root: true
+        });
+        context.dispatch("workspace/GET_WORKSPACE", null, {
+            root: true
+        });
+
+    }
 
 }

@@ -9,6 +9,7 @@
           :id="item.id"
           :name="item.name"
           :date="item.dateCreate"
+          :favorite="item.favourite"
         >
         </MainPageMiniature>
       </div>
