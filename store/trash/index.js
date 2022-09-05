@@ -25,6 +25,12 @@ export const actions = {
     async DELETE_PAGE(context, id) {
         await this.$axios.delete("/api/pages/" + id);
         context.dispatch("GET_LIST_PAGE");
+        context.dispatch("favorite/GET_LIST_FAVORITE_PAGE", null, {
+            root: true
+        });
+        if (localStorage.getItem("CurrentPage") == id) {
+            this.$router.push("/workspace");
+        }
     },
     async REESTABLISH(context, id) {
         await this.$axios.put("/api/pages/PushPullPageToTrash/" + id);

@@ -23,8 +23,8 @@ export const mutations = {
 
 export const actions = {
     async CREATE_WORKSPACE(context, name) {
-        if(name=="")
-        name="Untitled"
+        if (name == "")
+            name = "Untitled"
 
         let respons = await this.$axios.post("/api/workspaces", { name: name, });
         if (respons.status == 200) {
@@ -46,7 +46,7 @@ export const actions = {
                 root: true
             });
 
-        }else            this.$router.push("/personal");
+        } else this.$router.push("/personal");
 
         context.dispatch("SET_WORKSPACES")
 

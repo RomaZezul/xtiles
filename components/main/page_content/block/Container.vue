@@ -1,6 +1,6 @@
 <template>
   <div
-    :id="id"
+    :id="blockId"
     :style="{
       left: X,
       top: Y,
@@ -17,6 +17,7 @@
       v-for="element in listElements"
       :key="element.id"
       :element="element"
+      :id="element.id"
     />
     <MainPageContentBlockElementCreateElement v-if="show" />
     <div v-if="!show" class="create_element" @click="showInput()">
@@ -30,11 +31,12 @@ export default {
   data() {
     return {
       show: false,
+      blockId: this.id + 'b'
     };
   },
   methods: {
     mousedown() {
-      var c = document.getElementById(this.id).getBoundingClientRect();
+      var c = document.getElementById(this.blockId).getBoundingClientRect();
       this.$store.commit("block/SET_CURENT_BLOCK", {
         x: c.x,
         y: c.y,
@@ -74,8 +76,7 @@ export default {
   background: $white;
   display: flex;
   flex-direction: column;
-    cursor: text;
-
+  cursor: text;
 }
 .block_container-elements {
   margin-top: 5px;

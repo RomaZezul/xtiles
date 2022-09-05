@@ -12,7 +12,6 @@ export const mutations = {
     SET_CURENT_PAGE(state, value) {
         state.CurrentPage = value;
         localStorage.setItem('CurrentPage', value.id)
-        console.log(value);
     },
     SET_PAGES(state, value) {
         state.pages = value

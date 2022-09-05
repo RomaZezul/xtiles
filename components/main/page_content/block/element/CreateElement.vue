@@ -1,6 +1,6 @@
 <template>
   <div class="create_element-root">
-    <textarea autofocus @blur="create()" type="text" v-model="elText">fgdsgwshdhfg
+    <textarea autofocus @blur="create()"  contentEditable=false v-model="elText">
     </textarea>
   </div>
 </template>
