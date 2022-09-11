@@ -2,12 +2,12 @@
   <div class="app_bar-root">
     <div v-if="isPage" class="sw" @click="bool()">{{ Arrow }}</div>
     <div class="app_bar-breadcrumbs">
-      <span v-if="isPage">dfgh > yeter > jhgjhg > jfytfhfyh</span>
+      <span v-if="isPage"></span>
     </div>
     <div class="app_bar-buttons">
-      <button class="app_bar-button"></button>
+      <!-- <button class="app_bar-button"></button>
 
-      <button class="app_bar-button"></button>
+      <button class="app_bar-button"></button> -->
 
       <AppBarButtonsFavorite class="app_bar-button" />
 

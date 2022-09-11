@@ -28,10 +28,8 @@
 
 <script>
 export default {
-  //props:["showF"],
   data() {
     return {
-      //showF: true,
     };
   },
   methods: {

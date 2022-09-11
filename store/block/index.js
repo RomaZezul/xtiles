@@ -6,6 +6,7 @@ export const state = () => ({
         y: 0,
         height: 0,
         width: 0,
+        yWin: 0,
     },
     showModal: false,
     blocks: [],
@@ -14,7 +15,20 @@ export const state = () => ({
 
 export const mutations = {
     SET_CURENT_BLOCK(state, value) {
-        state.CurrentBlock = value;
+        state.CurrentBlock.yWin = value.yWin;
+        state.blocks.forEach(bl => {
+            if (bl.id == value.id) {
+                state.CurrentBlock.id = bl.id;
+                state.CurrentBlock.x = bl.x;
+                state.CurrentBlock.y = bl.y;
+                state.CurrentBlock.title = bl.title;
+                state.CurrentBlock.width = bl.width;
+                state.CurrentBlock.height = bl.height;
+            }
+        })
+    },
+    SET_CURENT_BLOCK_height(state, value) {
+        state.CurrentBlock.height = value;
     },
     SET_BLOCKS(state, value) {
         state.blocks = value
@@ -47,6 +61,14 @@ export const actions = {
         await this.$axios.delete("/api/Blocks/" + context.state.CurrentBlock.id)
         context.dispatch("pagge/GET_PAGE", null, {
             root: true
+        });
+    },
+    async UPDATE(context) {
+        await this.$axios.put("/api/Blocks/" + context.state.CurrentBlock.id, {
+            x: context.state.CurrentBlock.x,
+            y: context.state.CurrentBlock.y,
+            height: context.state.CurrentBlock.height,
+            width: context.state.CurrentBlock.width
         });
     }
 }

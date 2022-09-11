@@ -1,5 +1,6 @@
 *::-webkit-scrollbar {
     width: 4px;
+    height: 4px;
   }
   // *::-webkit-scrollbar-track {
   //   background: orange;
@@ -9,7 +10,22 @@
     border-radius: 2px;
     //border: 3px solid orange;
   }
-  *::selection {
-    background: transparent;
-  }
+   *::selection {
+     background: $grey2;
+   }
+   div::selection {
+     background: transparent;
+   }
+   button::selection {
+     background: transparent;
+   }
+   span::selection {
+     background: transparent;
+   }
+   svg::selection {
+     background: transparent;
+   }
   
+   img::selection {
+     background: transparent;
+   }

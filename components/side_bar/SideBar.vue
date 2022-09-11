@@ -3,9 +3,9 @@
     <div class="side_bar-wrap">
       <Logo class="app_logo" />
 
-      <p>PERSONAL SPACE</p>
+      <span class="side_bar-text">PERSONAL SPACE</span>
       <SideBarButtonsPersonalPage />
-      <p>WORKSPACE</p>
+      <span class="side_bar-text">WORKSPACE</span>
       <SideBarWsBar />
       <SideBarButtonsCreateWs />
     </div>
@@ -34,15 +34,17 @@ export default {
   flex: 1 1;
   min-height: 0;
   justify-content: flex-start;
-  p {
-    margin-left: auto;
-    margin-right: auto;
-    
-    margin-top: 17px;
-    font-size: $font_size-1;
-    color: $grey3;
-  }
 }
+.side_bar-text {
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 17px;
+  margin-bottom: 10px;
+  font-size: $font_size-1;
+  color: $grey3;
+}
+
 .app_logo {
   margin-left: 17px;
   margin-top: 21px;

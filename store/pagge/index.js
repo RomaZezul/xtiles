@@ -2,7 +2,7 @@ export const state = () => ({
     CurrentPage: {
         name: 'Untitled',
         id: 0,
-        favorite: true,
+        favorite: false,
     },
     pages: [],
 
@@ -36,7 +36,7 @@ export const actions = {
             context.commit("SET_CURENT_PAGE", {
                 name: respons.data.name,
                 id: respons.data.id,
-                favorite: respons.data.favorite
+                favorite: respons.data.favourite
             });
             context.commit("block/SET_BLOCKS", respons.data.listBlocks, {
                 root: true
@@ -49,9 +49,10 @@ export const actions = {
         context.dispatch("favorite/GET_LIST_FAVORITE_PAGE", null, {
             root: true
         });
-        context.dispatch("workspace/GET_WORKSPACE", null, {
-            root: true
-        });
+        // context.dispatch("workspace/GET_WORKSPACE", null, {
+        //     root: true
+        // });
+        context.dispatch("GET_PAGE");
     }
 
 }

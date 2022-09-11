@@ -1,5 +1,5 @@
 <template>
-  <div class="page_content-root">
+  <div id="page_content" class="page_content-root">
     <MainPagePoints />
   </div>
 </template>

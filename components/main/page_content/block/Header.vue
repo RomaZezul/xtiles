@@ -11,7 +11,7 @@ export default {
       this.$store.commit("block/toolmenu/SET_SHOW_MODAL", true);
       var c = document.querySelector(".app").getBoundingClientRect();
       //var xBl = this.$store.state.block.CurrentBlock.x;
-      var yBl = this.$store.state.block.CurrentBlock.y;
+      var yBl = this.$store.state.block.CurrentBlock.yWin;
       //var wBl = this.$store.state.block.CurrentBlock.width;
       //var hBl = this.$store.state.block.CurrentBlock.height;
       var x = c.width - e.x > e.x ? e.x : e.x - 260;

@@ -44,7 +44,7 @@ export default {
   justify-content: space-between;
 }
 .page_bar-buttons-right {
-  display: flex;
+  display: none;
 }
 .page_bar-buttons-left {
   display: flex;
