@@ -5,6 +5,7 @@ export const state = () => ({
     },
     showModal: false,
     workspaces: [],
+    personalPageId: 0,
 })
 
 export const mutations = {
@@ -12,8 +13,12 @@ export const mutations = {
         state.CurrentWs = value;
         localStorage.setItem("CurrentWs", value.id)
     },
-    SET_WORKSPACES(state, value) {
-        state.workspaces = value
+    SET_PERS(state, value) {
+        state.personalPageId = value
+    },
+    SET_WORKSPACES(state, value, value1) {
+        state.workspaces = value;
+        state.personalPage = value1
     },
     SET_SHOW_MODAL(state, value) {
         state.showModal = value;
@@ -23,8 +28,8 @@ export const mutations = {
 
 export const actions = {
     async CREATE_WORKSPACE(context, name) {
-        if(name=="")
-        name="Untitled"
+        if (name == "")
+            name = "Untitled"
 
         let respons = await this.$axios.post("/api/workspaces", { name: name, });
         if (respons.status == 200) {
@@ -42,11 +47,27 @@ export const actions = {
                 name: respons.data.name,
                 id: respons.data.id
             });
+
             context.commit("pagge/SET_PAGES", respons.data.pages, {
                 root: true
             });
 
-        }else            this.$router.push("/personal");
+        } else {
+            let res = await this.$axios.get("/api/workspaces/personal");
+            context.commit("SET_CURENT_WS", {
+                name: res.data.name,
+                id: res.data.id
+            });
+            context.commit("SET_PERS",
+            res.data.id
+        );
+
+            context.commit("pagge/SET_PAGES", res.data.pages, {
+                root: true
+            });
+
+            this.$router.push("/personal");
+        }
 
         context.dispatch("SET_WORKSPACES")
 
@@ -54,6 +75,7 @@ export const actions = {
 
     async SET_WORKSPACES(context) {
         let respons = await this.$axios.get("/api/workspaces");
+
         context.commit("SET_WORKSPACES", respons.data)
     },
 

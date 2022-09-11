@@ -16,8 +16,16 @@ export default {
       {
         src: 'https://accounts.google.com/gsi/client',
       },
+      {
+        src: "https://cdn.quilljs.com/1.3.6/quill.js"
+      }
+
     ],
     link: [
+      {
+        href: "//cdn.quilljs.com/1.3.6/quill.bubble.css",
+        rel: "stylesheet"
+      },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         as: 'style',

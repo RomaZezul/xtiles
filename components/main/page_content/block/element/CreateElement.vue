@@ -1,22 +1,50 @@
 <template>
   <div class="create_element-root">
-    <textarea autofocus @blur="create()" type="text" v-model="elText">fgdsgwshdhfg
-    </textarea>
+    <div id="new">w</div>
   </div>
 </template>
 <script>
 export default {
+  mounted() {
+    var toolbarOptions = [["link", "image", "video"]];
+    var options = {
+      bounds: ".page_points-root",
+      placeholder: "Write here...",
+      theme: "bubble",
+      modules: {
+        toolbar: toolbarOptions,
+      },
+    };
+
+    var quill = new Quill('#new', options);
+    quill.on("editor-change", this.create);
+
+    quill.setSelection(0, 1, "user");
+  },
   data() {
     return {
-      elText: "",
+      new: true,
     };
   },
   methods: {
     async create() {
-      let respons = await this.$axios.post("/api/elements", {
-        contentHtml: this.elText,
-        blockId: this.$store.state.block.CurrentBlock.id,
-      });
+      var txt = document.getElementById('new');
+      console.log(txt)
+      var notes = null;
+      for (var i = 0; i < txt.childNodes.length; i++) {
+        if (txt.childNodes[i].className == "ql-editor") {
+          notes = txt.childNodes[i];
+          break;
+        }
+      }
+      if (notes && this.new) {
+        this.$axios.post("/api/elements/", {
+          contentHtml: notes.innerHTML,
+          blockId: this.$store.state.block.CurrentBlock.id,
+        });
+        this.new = false;
+      }
+      this.$store.dispatch("pagge/GET_PAGE");
     },
   },
 };

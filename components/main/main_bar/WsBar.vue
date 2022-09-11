@@ -2,9 +2,9 @@
   <div class="ws_bar-root">
     <div @click="rename()" class="ws_bar-ws_name">{{ CurrentWs.name }}</div>
     <div class="ws_bar-buttons">
-      <button class="ws_bar-button"></button>
+      <!-- <button class="ws_bar-button"></button>
 
-      <button class="ws_bar-button"></button>
+      <button class="ws_bar-button"></button> -->
       <MainMainBarBattonsCreateNewPage class="ws_bar-button" />
     </div>
   </div>
@@ -13,8 +13,13 @@
 export default {
   methods: {
     rename() {
+      if (
+        localStorage.getItem("CurrentWs") ==
+        this.$store.state.workspace.personalPageId
+      )
+        return;
       this.$store.commit("workspace/toolmenu/SET_WS", {
-        id: localStorage.getItem("CurrentWs")
+        id: localStorage.getItem("CurrentWs"),
       });
       this.$store.commit("workspace/toolmenu/SET_SHOW_MODAL_RENAME", true);
     },
@@ -34,7 +39,6 @@ export default {
   justify-content: space-between;
 }
 .ws_bar-ws_name {
-  
   font-size: $font_size-2;
   text-align: left;
   overflow-x: hidden;

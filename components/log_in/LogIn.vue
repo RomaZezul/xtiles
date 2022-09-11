@@ -28,10 +28,8 @@
 
 <script>
 export default {
-  //props:["showF"],
   data() {
     return {
-      //showF: true,
     };
   },
   methods: {
@@ -48,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-     @import './assets/scss/mixin/buttton_stile.scss';
+@import "./assets/scss/mixin/buttton_stile.scss";
 
 .logIn-root {
   display: flex;
@@ -56,7 +54,7 @@ export default {
   align-items: center;
   background: $white;
   border-radius: $radius-5;
-  
+
   text-align: center;
   padding: 30px 57px;
 }

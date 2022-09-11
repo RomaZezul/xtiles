@@ -37,6 +37,7 @@ export const actions = {
             root: true
         });
         context.dispatch("trash/GET_LIST_PAGE", null, { root: true });
+
     },
     async RENAME(context, value) {
         if (value == "")
