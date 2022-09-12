@@ -8,8 +8,8 @@ export default {
     google.accounts.id.initialize({
       client_id:
         "824867412701-beluc82045n0hcko7pc1vp78mapd3fkm.apps.googleusercontent.com",
-      auto_select: true,
       //client_id: '824867412701-fgqpga536giig7p9uto5n7175q6d1195.apps.googleusercontent.com',
+      auto_select: true,
       callback: this.handleCredentialResponse, //method to run after user clicks the Google sign in button
       context: "signin",
     });
