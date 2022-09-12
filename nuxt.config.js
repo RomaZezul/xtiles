@@ -1,8 +1,4 @@
 export default {
-  //  server: {
-  //     host: '192.168.0.101', // default: localhost
-  //     port: 3131
-  //   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'xtiles',
