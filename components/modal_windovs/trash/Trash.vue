@@ -7,7 +7,7 @@
     <div class="trash_toolmenu_modal-wrapper">
       <div class="trash_toolmenu_modal-container">
         <div class="trash_toolmenu_modal-header">
-          <span>Tresh</span>
+          <span>Trash</span>
           <button @click="ClearAll()">CLEAR ALL</button>
         </div>
         <div class="trash_toolmenu_modal-main">
