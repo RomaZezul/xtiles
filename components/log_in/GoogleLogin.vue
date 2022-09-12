@@ -1,41 +1,41 @@
 <template >
-<div id="googleButton"></div></template>
+  <div id="googleButton"></div>
+</template>
 <script>
 export default {
-   mounted() {
-    // initialize Google Sign in  
+  beforeMount() {
+    // initialize Google Sign in
     google.accounts.id.initialize({
-        client_id: '824867412701-beluc82045n0hcko7pc1vp78mapd3fkm.apps.googleusercontent.com',
-        
-        //client_id: '824867412701-fgqpga536giig7p9uto5n7175q6d1195.apps.googleusercontent.com',
-        callback: this.handleCredentialResponse, //method to run after user clicks the Google sign in button
-        context: 'signin'
-      })
-    //google.accounts.id.prompt()
-    // render button
-    google.accounts.id.renderButton(
-      document.getElementById('googleButton'),
-      { 
-        type: 'standard',
-        size: 'large',
-        text: 'signin_with',
-        shape: 'rectangular',
-        logo_alignment: 'center',
-        width: 250
-      }
-    )
+      client_id:
+        "824867412701-beluc82045n0hcko7pc1vp78mapd3fkm.apps.googleusercontent.com",
+      auto_select: true,
+      //client_id: '824867412701-fgqpga536giig7p9uto5n7175q6d1195.apps.googleusercontent.com',
+      callback: this.handleCredentialResponse, //method to run after user clicks the Google sign in button
+      context: "signin",
+    });
+    google.accounts.id.prompt();
   },
-  
+  mounted() {
+    // render button
+    google.accounts.id.renderButton(document.getElementById("googleButton"), {
+      type: "standard",
+      size: "large",
+      text: "signin_with",
+      shape: "rectangular",
+      logo_alignment: "center",
+      width: 250,
+    });
+  },
   methods: {
     async handleCredentialResponse(response) {
       await this.$auth.loginWith("local1", {
-          data:{tokenID: response.credential}
-        });
+        data: { tokenID: response.credential },
+      });
       // call your backend API here
-      
+
       // the token can be accessed as: response.credential
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -52,7 +52,7 @@ export default {
   align-items: center;
   span {
     font-size: $font_size-1;
-    
+
     margin-left: 7px;
     color: $grey1;
   }

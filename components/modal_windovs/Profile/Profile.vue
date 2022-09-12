@@ -31,6 +31,7 @@ export default {
     },
 
     logouts() {
+      google.accounts.id.disableAutoSelect();
       this.$auth.logout();
       this.$router.push("/");
       this.closeModal();
