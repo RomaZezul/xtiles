@@ -11,9 +11,18 @@ export const state = () => ({
     showModal: false,
     blocks: [],
     pagePointsHeight: 0,
+    isStyle: false,
+    col: "#ffffffff",
+
 })
 
 export const mutations = {
+    SET_IS_STYLE(state, value) {
+        state.isStyle = value;
+    },
+    SET_COL(state, value) {
+        state.col = value;
+    },
     SET_CURENT_BLOCK(state, value) {
         state.CurrentBlock.yWin = value.yWin;
         state.blocks.forEach(bl => {
@@ -69,6 +78,11 @@ export const actions = {
             y: context.state.CurrentBlock.y,
             height: context.state.CurrentBlock.height,
             width: context.state.CurrentBlock.width
+        });
+    },
+    async SET_STYLE(context) {
+        await this.$axios.put("/api/Blocks/updateBlockStyle/" + context.state.CurrentBlock.id, {
+            style: context.state.col
         });
     }
 }

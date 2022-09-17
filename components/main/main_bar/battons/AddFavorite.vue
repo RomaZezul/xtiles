@@ -38,6 +38,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   svg {
     width: 14px;
     height: 14px;

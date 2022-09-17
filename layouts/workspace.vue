@@ -19,6 +19,7 @@
     <ModalWindovsProfileSettings />
     <ModalWindovsTrash />
     <ModalWindovsFavorite />
+    <ModalWindovsElementToolMenu />
   </div>
 </template>
 <script>

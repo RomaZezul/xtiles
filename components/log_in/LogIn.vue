@@ -34,12 +34,12 @@ export default {
   },
   methods: {
     showD() {
-      this.$store.commit("SET_SHOW_F", !this.$store.state.showF);
+      this.$store.commit("SET_SHOW_FORM", !this.$store.state.showForm);
     },
   },
   computed: {
     isShow() {
-      return this.$store.state.showF;
+      return this.$store.state.showForm;
     },
   },
 };

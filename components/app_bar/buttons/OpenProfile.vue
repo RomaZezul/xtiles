@@ -7,8 +7,8 @@
 <script>
 export default {
   methods: {
-    SETshowModal(b) {
-      this.$store.commit("profile/SET_SHOW_MODAL", b);
+    SETshowModal() {
+      this.$store.commit("profile/SET_SHOW_MODAL", true);
     },
   },
 
@@ -30,6 +30,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .open_profile-root:hover{
       opacity: $opasity_hov

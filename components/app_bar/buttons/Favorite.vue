@@ -30,6 +30,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   svg {
     path {
       stroke: $white;

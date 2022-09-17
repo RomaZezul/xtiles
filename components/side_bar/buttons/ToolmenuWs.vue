@@ -1,7 +1,7 @@
 <template >
   <button
     v-show="showMenu || isActive"
-    :id="id"
+    :id="ToolmenuWsId"
     class="toolmenu-root"
     @click.stop="SETshowModal()"
   >
@@ -23,13 +23,14 @@ export default {
   name: "ToolmenuWs",
   props: ["id", "name", "showMenu"],
   data() {
-    return { show: false };
+    return { show: false ,
+    ToolmenuWsId: this.id + 'S'};
   },
 
   methods: {
     SETshowModal() {
       this.show = true;
-      let elem = document.getElementById(this.id).getBoundingClientRect();
+      let elem = document.getElementById(this.ToolmenuWsId).getBoundingClientRect();
       this.$store.commit("workspace/toolmenu/SET_COORDS", {
         left: elem.x + 20,
         top: elem.y + 20,
