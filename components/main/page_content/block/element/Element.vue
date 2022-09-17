@@ -1,13 +1,18 @@
 <template>
   <div class="element-root">
-    <div :id="elementId"></div>
+    <MainPageContentBlockElementDrag :id="id" :elementCur="this.elementCur" />
+    <div class="element-edit" :style="{ background: this.col }">
+      <div :id="elementId" @click="show"></div>
+    </div>
   </div>
 </template>
 <script>
 export default {
+  beforeMount() {},
   mounted() {
-    //window.addEventListener('resize', this.resize);
-
+    this.elementCur = document.getElementById(this.elementId);
+    this.entries = document.getElementById(this.blockId + "b");
+    this.col = this.colSTORE;
     var toolbarOptions = [
       ["bold", "italic", "underline", "strike"], // toggled buttons
       ["blockquote", "code-block", "link", "image", "video"],
@@ -18,7 +23,7 @@ export default {
       [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
       [{ direction: "rtl" }], // text direction
 
-      [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+      [{ size: [10, 12, 14, 16, 18, 20, false] }], // custom dropdown
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
 
       [{ color: [] }, { background: [] }], // dropdown with defaults from theme
@@ -29,53 +34,101 @@ export default {
     ];
     var options = {
       bounds: ".page_points-root",
-      placeholder: "Write here...",
+      //placeholder: "Write here...",
       theme: "bubble",
       modules: {
         toolbar: toolbarOptions,
       },
     };
-    document.getElementById(this.elementId).innerHTML =
-      this.element.contentHtml;
+    this.elementCur.style.width = "100%";
 
-    var quill = new Quill("#" + this.elementId, options);
+    this.col = this.element.contentHtml.substr(0, 9);
+
+    this.elementCur.innerHTML = this.element.contentHtml.slice(9);
+    //this.elementCur.style.background = this.$store.state.element.col;
+
+    var quill = new Quill(this.elementCur, options);
     quill.on("text-change", this.update);
     quill.focus();
+
+    this.resize();
   },
   props: ["id", "element", "blockId"],
   data() {
     return {
       elementId: "e" + this.id + "e",
+      elementCur: null,
+      entries: null,
+      col: "#ffffff00",
     };
   },
+  watch: {
+    colS: function (s) {
+      this.col = s;
+      if (this.blockId == this.$store.state.block.CurrentBlock.id) {      console.log(this.blockId)
+      console.log(this.$store.state.block.CurrentBlock.id)
+
+        this.update();
+      }
+    },
+  },
+  computed: {
+    colS() {
+      if (
+        this.id == this.$store.state.element.id &&
+        this.$store.state.element.isStyle
+      ) {
+        var w = this.$store.state.element.col;
+
+        this.$store.commit("element/SET_IS_STYLE", false);
+        return w;
+      } else return this.col;
+    },
+  },
   methods: {
-    async update() {
-      var txt = document.getElementById(this.elementId);
+    show() {
       var notes = null;
-      for (var i = 0; i < txt.childNodes.length; i++) {
-        if (txt.childNodes[i].className == "ql-editor") {
-          notes = txt.childNodes[i];
+      for (var i = 0; i < this.elementCur.childNodes.length; i++) {
+        if (this.elementCur.childNodes[i].className.indexOf("ql-hidden") >= 0) {
+          notes = this.elementCur.childNodes[i];
           break;
         }
       }
       if (notes) {
+        notes.classList.remove("ql-hidden");
+      }
+    },
+    async update() {
+      var notes = null;
+      for (var i = 0; i < this.elementCur.childNodes.length; i++) {
+          console.log(this.elementCur.childNodes[i].className.indexOf("ql-editor"))
+        if (this.elementCur.childNodes[i].className.indexOf("ql-editor") >= 0) {
+
+          notes = this.elementCur.childNodes[i];
+          break;
+        }
+      }
+      if (notes) {
+        var contentHtml = this.col + notes.innerHTML;
         this.$axios.put("/api/elements/" + this.id, {
-          contentHtml: notes.innerHTML,
+          contentHtml: contentHtml,
           blockId: this.$store.state.block.CurrentBlock.id,
         });
       }
-
-      let entries = document.getElementById(this.blockId);
-      entries.style.height = null;
+      this.resize();
+    },
+    resize() {
+      this.entries.style.height = null;
       if (
-        entries == null ||
+        this.entries == null ||
         this.$store.state.block.CurrentBlock.height >
-          Math.trunc(entries.clientHeight / 24) * 24
+          Math.trunc(this.entries.clientHeight / 24) * 24
       ) {
-        entries.style.height = `${this.$store.state.block.CurrentBlock.height}px`;
+        this.entries.style.height = `${this.$store.state.block.CurrentBlock.height}px`;
         return;
       }
-      entries.style.height = Math.trunc(entries.clientHeight / 24) * 24 + "px";
+      this.entries.style.height =
+        Math.trunc(this.entries.clientHeight / 24) * 24 + 24 + "px";
       // if (h != c.style.height) {
       //   this.$store.commit(
       //     "block/SET_CURENT_BLOCK_height",
@@ -89,18 +142,34 @@ export default {
 </script>
 <style lang="scss">
 .element-root {
-  width: stretch;
-  word-break: break-all;
-  cursor: text;
+  display: flex;
+  align-items: flex-start;
+  .element-edit {
+    width: stretch;
+    word-break: break-all;
+    margin: 5px 0;
+    margin-right: 13px;
+    cursor: text;
+    border-radius: 10px;
+  }
   &::selection {
     background: $grey4;
   }
   p::selection {
     background: $grey4;
   }
+  &:hover {
+    .element_drag-root {
+      opacity: 1;
+    }
+  }
 }
+
 .ql-editor {
-  padding: 0;
+  padding: 5px;
+  img {
+    border-radius: 10px;
+  }
 }
 .ql-tooltip {
   z-index: 1;

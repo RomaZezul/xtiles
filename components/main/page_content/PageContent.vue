@@ -4,7 +4,9 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  name: "PageContent"
+};
 </script>
 <style lang="scss">
 .page_content-root {

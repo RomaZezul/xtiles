@@ -26,7 +26,12 @@ export default {
     //   id: 0,
     // });
     this.$store.commit("SWITCH_PAGE", false);
+
+
     let res = await this.$axios.get("/api/workspaces/personal");
+
+
+    
     this.$store.commit("workspace/SET_CURENT_WS", {
       name: res.data.name,
       id: res.data.id,

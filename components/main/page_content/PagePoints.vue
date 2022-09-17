@@ -11,6 +11,7 @@
       v-for="block in blocks"
       :key="block.id"
       :title="block.title"
+      :styleCol="block.style"
       :x="block.x"
       :y="block.y"
       :w="block.width"

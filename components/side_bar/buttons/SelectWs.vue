@@ -82,6 +82,7 @@ export default {
   margin: 0;
   margin-bottom: 10px;
   text-decoration: none;
+  cursor: pointer;
   &:active {
     opacity: $opasity_hov;
   }

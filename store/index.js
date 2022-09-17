@@ -1,14 +1,14 @@
 export const state = () => ({
-    showF: true,
+    showForm: true,
     isPage: false,//Если true, значит на странице Page
     sizeSB: 221,
     sizeSB1: 0,
     Arrow: '<<'
-
+    
 })
 export const mutations = {
-    SET_SHOW_F(state, value) {
-        state.showF = value;
+    SET_SHOW_FORM(state, value) {
+        state.showForm = value;
     },
     SWITCH_PAGE(state, value) {
         state.isPage = value;

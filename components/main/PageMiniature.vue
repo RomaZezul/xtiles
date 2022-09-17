@@ -9,7 +9,7 @@
         <div class="page_miniature-date">{{ correctDate() }}</div>
       </div>
       <button
-        :id="id"
+        :id="PageMiniatureId"
         class="page_miniature-button"
         @click.stop="SETshowModal()"
       >
@@ -35,7 +35,8 @@ export default {
   name: "PageMiniature",
   props: ["name", "date", "id", "favorite"],
   data() {
-    return { show: false };
+    return { show: false,
+      PageMiniatureId: this.id + 'pm'};
   },
 
   methods: {
@@ -49,7 +50,7 @@ export default {
       this.show = true;
       console.log(this.id);
       var c = document.querySelector(".app").getBoundingClientRect();
-      var elem = document.getElementById(this.id).getBoundingClientRect();
+      var elem = document.getElementById(this.PageMiniatureId).getBoundingClientRect();
       var x = c.width - (elem.x + 200) > elem.x ? elem.x + 10 : elem.x - 190;
       var y = c.height - (elem.y + 61) > elem.y ? elem.y + 40 : elem.y - 81;
       this.$store.commit("pagge/toolmenu/SET_COORDS", {
@@ -84,6 +85,7 @@ export default {
   margin: 0;
   padding: 0;
   text-align: left;
+  cursor: pointer;
   &:hover {
     button {
       svg {
@@ -144,7 +146,6 @@ export default {
     
     font-weight: 400;
     font-size: $font_size-1;
-    color: $grey1;
     text-align: left;
     overflow-x: hidden;
     text-overflow: ellipsis;
@@ -155,5 +156,13 @@ export default {
   circle {
     fill: $black1;
   }
+}
+.page_miniature-name{
+  margin:  5px 0;
+  color: $pink1;
+}
+.page_miniature-date{
+  color: $grey1;
+
 }
 </style>

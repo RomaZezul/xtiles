@@ -16,6 +16,9 @@ export const mutations = {
     SET_PAGES(state, value) {
         state.pages = value
     },
+    SET_FAVORITE(state, value) {
+        state.CurrentPage.favorite = value
+    }
 }
 
 export const actions = {
