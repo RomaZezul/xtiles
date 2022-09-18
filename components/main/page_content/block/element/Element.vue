@@ -2,7 +2,7 @@
   <div class="element-root">
     <MainPageContentBlockElementDrag :id="id" :elementCur="this.elementCur" />
     <div class="element-edit" :style="{ background: this.col }">
-      <div :id="elementId" @click="show"></div>
+      <div :id="elementId" @click="showEditorOnClick"></div>
     </div>
   </div>
 </template>
@@ -65,8 +65,9 @@ export default {
   watch: {
     colS: function (s) {
       this.col = s;
-      if (this.blockId == this.$store.state.block.CurrentBlock.id) {      console.log(this.blockId)
-      console.log(this.$store.state.block.CurrentBlock.id)
+      if (this.blockId == this.$store.state.block.CurrentBlock.id) {
+        //console.log(this.blockId)
+        //console.log(this.$store.state.block.CurrentBlock.id)
 
         this.update();
       }
@@ -86,34 +87,31 @@ export default {
     },
   },
   methods: {
-    show() {
+    SearchNode(selector) {
       var notes = null;
       for (var i = 0; i < this.elementCur.childNodes.length; i++) {
-        if (this.elementCur.childNodes[i].className.indexOf("ql-hidden") >= 0) {
+        if (this.elementCur.childNodes[i].className.indexOf(selector) >= 0) {
           notes = this.elementCur.childNodes[i];
           break;
         }
       }
+      return notes;
+    },
+    showEditorOnClick() {
+      var notes = this.SearchNode("ql-hidden");
       if (notes) {
         notes.classList.remove("ql-hidden");
       }
     },
     async update() {
-      var notes = null;
-      for (var i = 0; i < this.elementCur.childNodes.length; i++) {
-          console.log(this.elementCur.childNodes[i].className.indexOf("ql-editor"))
-        if (this.elementCur.childNodes[i].className.indexOf("ql-editor") >= 0) {
-
-          notes = this.elementCur.childNodes[i];
-          break;
-        }
-      }
+      var notes = this.SearchNode("ql-editor");
+      console.log(notes.innerHTML);
       if (notes) {
-        var contentHtml = this.col + notes.innerHTML;
-        this.$axios.put("/api/elements/" + this.id, {
-          contentHtml: contentHtml,
-          blockId: this.$store.state.block.CurrentBlock.id,
-        });
+        this.$store.commit("element/SET_ID", this.id);
+        this.$store.dispatch(
+          "element/UPDATE_ELEMENT",
+          this.col + "" + notes.innerHTML
+        );
       }
       this.resize();
     },
@@ -148,7 +146,7 @@ export default {
     width: stretch;
     word-break: break-all;
     margin: 5px 0;
-    margin-right: 13px;
+    margin-right: 18px;
     cursor: text;
     border-radius: 10px;
   }
@@ -172,6 +170,6 @@ export default {
   }
 }
 .ql-tooltip {
-  z-index: 1;
+  z-index: 1000;
 }
 </style>

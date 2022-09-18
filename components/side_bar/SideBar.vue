@@ -1,8 +1,10 @@
 <template>
   <div class="side_bar-root">
     <div class="side_bar-wrap">
-      <Logo class="app_logo" />
+      <nuxt-link to="/" >
 
+      <Logo class="app_logo" />
+      </nuxt-link>
       <span class="side_bar-text">PERSONAL SPACE</span>
       <SideBarButtonsPersonalPage />
       <span class="side_bar-text">WORKSPACE</span>

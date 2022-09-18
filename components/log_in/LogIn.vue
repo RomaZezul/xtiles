@@ -1,6 +1,9 @@
 <template>
   <div class="logIn-root">
-    <LogInLogo />
+    <nuxt-link to="/">
+      <LogInLogo />
+    </nuxt-link>
+
     <div v-if="isShow" class="logIn-wrap">
       <h1>Welcome to xtiles</h1>
       <div class="text">
@@ -29,8 +32,7 @@
 <script>
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     showD() {
@@ -57,13 +59,13 @@ export default {
 
   text-align: center;
   padding: 30px 57px;
-}
-h1 {
-  margin: 0;
-  margin-top: 28px;
-  font-size: $font_size-2;
-  color: $grey3;
-  font-weight: 400;
+  h1 {
+    margin: 0;
+    margin-top: 28px;
+    font-size: $font_size-2;
+    color: $grey3;
+    font-weight: 400;
+  }
 }
 
 .logIn-wrap {
