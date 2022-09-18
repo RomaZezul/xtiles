@@ -11,7 +11,7 @@
     @mousedown.stop="mousedown()"
     class="block_container-root"
   >
-    <MainPageContentBlockHeader :title="title" :blockId="blockId" />
+    <MainPageContentBlockHeader :title="title" :id="id" />
     <div class="block_container-elements">
       <MainPageContentBlockElement
         v-for="element in listElements"
@@ -32,7 +32,7 @@ export default {
     resizeObserver.observe(document.getElementById("page_content"));
     this.entries = document.getElementById(this.blockId);
     this.col = this.styleCol;
-    console.log(this.style);
+    //console.log(this.style);
   },
   props: ["x", "y", "w", "h", "title", "id", "listElements", "styleCol"],
   data() {
@@ -46,7 +46,6 @@ export default {
   methods: {
     resize() {
       this.entries.style.height = null;
-
       if (
         this.entries == null ||
         this.h > Math.trunc(this.entries.clientHeight / 24) * 24
@@ -59,16 +58,12 @@ export default {
     },
 
     mousedown() {
-      var c = document.getElementById(this.blockId).getBoundingClientRect();
-      this.$store.commit("block/SET_CURENT_BLOCK", { id: this.id, yWin: c.y });
+      //var c = document.getElementById(this.blockId).getBoundingClientRect();
+      this.$store.commit("block/SET_CURENT_BLOCK", { id: this.id });
     },
     async createElement() {
       this.show = true;
-      var res = await this.$axios.post("/api/elements", {
-        contentHtml: "#ffffff00<p></p>",
-        blockId: this.$store.state.block.CurrentBlock.id,
-      });
-      this.$store.dispatch("pagge/GET_PAGE");
+      this.$store.dispatch("element/CREATE_ELEMENT");
       this.resize();
     },
   },
@@ -77,8 +72,8 @@ export default {
       this.col = s;
       if (this.id == this.$store.state.block.CurrentBlock.id) {
         this.$store.dispatch("block/SET_STYLE");
-        console.log(this.blockId);
-        console.log(this.$store.state.block.CurrentBlock.id);
+        //console.log(this.blockId);
+        //console.log(this.$store.state.block.CurrentBlock.id);
       }
     },
   },
@@ -96,6 +91,7 @@ export default {
     H() {
       return this.h + "px";
     },
+    
     colS() {
       if (
         this.id == this.$store.state.block.CurrentBlock.id &&
@@ -118,8 +114,8 @@ export default {
   margin: -4px;
   padding: 3px;
   background: $white;
-  display: flex;
-  flex-direction: column;
+  //display: flex;
+  //flex-direction: column;
   cursor: text;
 }
 .block_container-elements {
@@ -129,7 +125,7 @@ export default {
 }
 .create_element {
   width: 100%;
-  height: 100%;
+  height: 30px;
   opacity: 0;
   //border: 1px solid $grey2;
   //border-radius: 5px;

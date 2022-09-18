@@ -1,7 +1,7 @@
 @mixin link {
   text-decoration: underline;
   color: $pink1;
-  background: $white;
+  background: transparent;
 
   &:active {
     color: $grey2;

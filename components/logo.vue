@@ -1,5 +1,4 @@
 <template>
-  <nuxt-link to="/" class="logo-root">
     <svg
       width="134"
       height="38"
@@ -45,7 +44,6 @@
         </clipPath>
       </defs>
     </svg>
-  </nuxt-link>
 </template>
 
 

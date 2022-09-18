@@ -105,6 +105,7 @@ export default {
       this.closeModal();
     },
     rename() {
+      this.$store.commit("block/SET_IS_RENAME", true);
       this.closeModal();
     },
     Orange() {
