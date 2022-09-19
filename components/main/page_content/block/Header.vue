@@ -173,7 +173,7 @@ export default {
   font-weight: 500;
   font-size: $font_size-1;
   min-height: 4px;
-    // cursor: pointer;
+     cursor: default;
 
   //content-visibility: hidden;
   &:hover {
