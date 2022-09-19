@@ -36,6 +36,7 @@ export default {
     this.titleBlock = this.title;
     this.container = document.querySelector(".page_points-root");
     this.block = document.getElementById(this.id + "b");
+    this.block.style.cursor = "default";
     this.blockWidthComp = this.block.getBoundingClientRect().width;
     this.container.addEventListener("mousemove", this.mousemove);
     this.container.addEventListener("mouseup", this.mouseup);
@@ -173,7 +174,7 @@ export default {
   font-weight: 500;
   font-size: $font_size-1;
   min-height: 4px;
-     cursor: default;
+     //cursor: default;
 
   //content-visibility: hidden;
   &:hover {
