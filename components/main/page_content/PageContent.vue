@@ -12,5 +12,6 @@ export default {
 .page_content-root {
   height: 100%;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 </style>

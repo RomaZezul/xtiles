@@ -41,7 +41,6 @@ export const actions = {
             contentHtml: value,
             blockId: context.rootState.block.CurrentBlock.id
           });
-          console.log(value)
     },
     async DELETE_ELEMENT(context) {
         await this.$axios.delete("/api/elements/" + context.state.id)

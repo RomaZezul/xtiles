@@ -52,8 +52,8 @@ export default {
           email: this.register.email,
           password: this.register.password,
         });
-        console.log(response);
-        await this.$auth.loginWith("local2", {
+        //console.log(response);
+        await this.$auth.loginWith("local", {
           data: {
             email: this.register.email,
             password: this.register.password,

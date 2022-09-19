@@ -36,7 +36,9 @@ export const actions = {
         context.dispatch("workspace/GET_WORKSPACE", null, {
             root: true
         });
-
+        context.dispatch("favorite/GET_LIST_FAVORITE_PAGE", null, {
+            root: true
+        });
     },
     async RENAME(context, value) {
         if (value == "")
