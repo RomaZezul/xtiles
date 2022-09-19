@@ -2,7 +2,7 @@
   <div class="index-root">
     <div class="main">
       <nav>
-          <Logo class="index_logo" />
+        <Logo class="index_logo" />
         <div class="sign">
           <span class="link1" @click="reg(true)"> Sign In </span>
           <button @click="reg(false)" class="index-button">Try for free</button>
@@ -12,24 +12,15 @@
         <div class="content">
           <h1>Organize your ideas & projects visually</h1>
           <p>Personal workspace favored by creatives</p>
-          <button @click="reg(false)" class="index-button">Get started - it’s free</button>
+          <button @click="reg(false)" class="index-button">
+            Get started - it’s free
+          </button>
         </div>
         <div class="video">
-          <video
-            autoplay=""
-            muted=""
-            loop=""
-            playsinline=""
-            width="100%"
-            height="auto"
-            preload="auto"
+          <iframe
+            src="https://www.youtube.com/embed/Uzc5bJiF2S0?autoplay=1&mute=1"
           >
-            <source
-              src="https://media.xtiles.app/107ca3caa65a8656e19b345bfec059e9fd2e57aff848c2bb47e614600585131411d86377d86e14fb64fb8fa807743902"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+          </iframe>
         </div>
       </section>
     </div>
