@@ -3,7 +3,7 @@
     <aside class="app_aside" :style="{ left: sizeSB1 }">
       <SideBar />
     </aside>
-    <main class="app_main" :style="{ 'margin-left': sizeSB }">
+    <main unselectable  class="app_main" :style="{ 'margin-left': sizeSB }">
       <Nuxt />
     </main>
     <header class="app_header" :style="{ 'margin-left': sizeSB }">

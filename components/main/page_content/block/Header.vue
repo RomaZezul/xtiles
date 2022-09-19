@@ -62,6 +62,7 @@ export default {
       // this.ySt = e.pageY;
       this.down = true;
       this.show = true;
+      this.block.style.cursor = "all-scroll";
     },
     mousemove(e) {
       if (this.down && this.block.style) {
@@ -110,18 +111,23 @@ export default {
           });
           this.$store.dispatch("block/UPDATE");
         } else {
-          this.block.style.left = `${this.$store.state.block.CurrentBlock.x}%`;
           this.block.style.top = `${this.$store.state.block.CurrentBlock.y}px`;
+          this.block.style.left = `${this.$store.state.block.CurrentBlock.x}%`;
         }
-      }  this.block.style.zIndex = 'auto';
+      }
+      this.block.style.zIndex = "auto";
+      this.block.style.cursor = "default";
 
       this.toolmenu(e);
       this.down = false;
     },
     mouseleave() {
       if (this.down) {
+        this.block.style.top = `${this.$store.state.block.CurrentBlock.y}px`;
         this.block.style.left = `${this.$store.state.block.CurrentBlock.x}%`;
       }
+      this.block.style.cursor = "default";
+
       this.down = false;
     },
 
@@ -164,10 +170,10 @@ export default {
   //height: 14px;
   line-height: 18px;
   text-align: center;
-  cursor: pointer;
   font-weight: 500;
   font-size: $font_size-1;
   min-height: 4px;
+    // cursor: pointer;
 
   //content-visibility: hidden;
   &:hover {

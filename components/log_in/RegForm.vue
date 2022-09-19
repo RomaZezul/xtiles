@@ -52,7 +52,7 @@ export default {
           email: this.register.email,
           password: this.register.password,
         });
-        console.log(response);
+        //console.log(response);
         await this.$auth.loginWith("local", {
           data: {
             email: this.register.email,

@@ -48,7 +48,7 @@ export default {
     },
     SETshowModal() {
       this.show = true;
-      console.log(this.id);
+      //console.log(this.id);
       var c = document.querySelector(".app").getBoundingClientRect();
       var elem = document.getElementById(this.PageMiniatureId).getBoundingClientRect();
       var x = c.width - (elem.x + 200) > elem.x ? elem.x + 10 : elem.x - 190;

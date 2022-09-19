@@ -23,7 +23,7 @@ export default {
       [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
       [{ direction: "rtl" }], // text direction
 
-      [{ size: [10, 12, 14, 16, 18, 20, false] }], // custom dropdown
+      [{ size: [] }], // custom dropdown
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
 
       [{ color: [] }, { background: [] }], // dropdown with defaults from theme
@@ -105,7 +105,7 @@ export default {
     },
     async update() {
       var notes = this.SearchNode("ql-editor");
-      console.log(notes.innerHTML);
+      //console.log(notes.innerHTML);
       if (notes) {
         this.$store.commit("element/SET_ID", this.id);
         this.$store.dispatch(

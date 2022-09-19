@@ -1,7 +1,7 @@
 <template>
   <div
     class="page_points-root"
-    :style="{height: pagePointsHeight}"
+    :style="{ height: pagePointsHeight }"
     @mousedown.stop="mousedown($event)"
     @mousemove.stop="mousemove($event)"
     @mouseup.stop="mouseup($event)"
@@ -56,8 +56,6 @@ export default {
       this.wEl = c.width;
       this.hEl = c.height;
 
-
-      
       var widthP = this.wEl / 50;
       this.x = Math.round((e.pageX - this.lEl - widthP / 2) / widthP) * 2 + 1;
       this.y = Math.round((e.pageY - this.tEl - 12) / 24) * 24 + 12;
@@ -65,11 +63,17 @@ export default {
       this.xSt = e.pageX;
       this.ySt = e.pageY;
       this.show = false;
-      if (this.x + 12 < 100) this.down = true;
+      if (this.x + 12 < 100) {
+        this.down = true;
+      } else {
+        document.querySelector(".page_points-root").style.cursor =
+          "not-allowed";
+      }
     },
     mousemove(e) {
       var widthP = this.wEl / 50;
-      if (this.down) { //min new block
+      if (this.down) {
+        //min new block
         this.show = true;
         this.w = 12; //%
         this.h = 48; //px
@@ -94,10 +98,15 @@ export default {
       }
       this.show = false;
       this.down = false;
+      document.querySelector(".page_points-root").style.cursor =
+          "crosshair";
     },
     mouseleave() {
       this.show = false;
       this.down = false;
+      document.querySelector(".page_points-root").style.cursor =
+          "crosshair";
+
     },
   },
   computed: {
@@ -107,9 +116,9 @@ export default {
     blocks() {
       return this.$store.state.block.blocks;
     },
-    pagePointsHeight(){
-        return this.$store.state.block.pagePointsHeight + 'px'
-    }
+    pagePointsHeight() {
+      return this.$store.state.block.pagePointsHeight + "px";
+    },
   },
 };
 </script>
