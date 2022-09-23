@@ -53,12 +53,20 @@ export default {
           password: this.register.password,
         });
         //console.log(response);
-        await this.$auth.loginWith("local2", {
-          data: {
-            email: this.register.email,
-            password: this.register.password,
-          },
-        });
+        if (response.data.error == "User with such email already exists") {
+          alert(
+            "Пользователь с таким адресом электронной почты уже существует"
+          );
+        } else if (response.data.success == false) {
+          alert("Неизвесная ошибка. Попробуйте ввести другие данные");
+        } else {
+          await this.$auth.loginWith("local2", {
+            data: {
+              email: this.register.email,
+              password: this.register.password,
+            },
+          });
+        }
       } catch (err) {
         console.log(err);
       }
@@ -67,8 +75,8 @@ export default {
 };
 </script>
 <style lang="scss">
-     @import './assets/scss/mixin/buttton_stile.scss';
-     @import './assets/scss/mixin/input_sile.scss';
+@import "./assets/scss/mixin/buttton_stile.scss";
+@import "./assets/scss/mixin/input_sile.scss";
 
 .reg_form-root {
   input {
